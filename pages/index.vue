@@ -137,7 +137,42 @@
 
     <!-- carousels -->
     <div class="features">
-      
+      <div class="features-header">
+        <h4>Features</h4>
+        <h2>More than an investment platform</h2>
+      </div>
+      <div class="features-card">
+        <div class="features-text">
+          <span>
+          BITPANDA CARD
+          </span>
+          <h2>Apple Pay meets Bitpanda Card</h2>
+          <p>Bitpanda Card is the easy way to spend your assets anywhere you want-in-real-time. And it just got easier. Starting today, Apple Pay is available to all our Apple customers.</p>
+          <a href="">Read more</a>
+        </div>
+      </div>
+      <div class="features-button">
+          <button>See all features</button>
+      </div>
+
+    </div>
+    <div class="learn">
+      <div class="learn-header">
+        <h4>LEARN</h4>
+        <h2>Boost your financial literacy skills</h2>
+      </div>
+      <div class="learn-cards">
+        <div class="learn-first">
+          <span>BITPANDA BLOG</span>
+          <h2>Get the latest company news and industry updates</h2>
+          <a href="">Visit Blog</a>
+        </div>
+        <div class="learn-second">
+          <span>BITPANDA ACADEMY</span>
+          <h2>Learn all about investing, Bitcoin and blockchain</h2>
+          <a href="">Visit Academy</a>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -309,6 +344,151 @@ export default {
   .invest-bottom{
     padding-bottom: 20px;
   }
+  .features{
+    margin-top: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  .features-header{
+    text-align: center;
+  }
+  .features-header h4{
+    font-size: 19px;
+    color: #8b8b8b;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .features-header h2{
+    font-size: 45px;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .features-card{
+    background: #161719;
+    display: grid;
+    margin-top: 2rem;
+    border-radius: 9px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .features-text{
+    color: white;
+    padding: 2rem;
+  }
+  .features-text span{
+    background-color: #8b8b8b;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 1.5rem !important;
+    display: inline-block;
+  }
+  .features-text h2{
+    font-size: 45px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+  .features-text a{
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid #27d17f;
+  }
+  .features-text a:hover{
+    color: #27d17f;
+  }
+  .features-button{
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .features-button button{
+    background: #27d17f;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 9px;
+    border: 1px solid #27d17f;
+  }
+  .learn{
+    margin-top: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  .learn-header{
+    text-align: center;
+  }
+  .learn-header h4{
+    color: #8b8b8b;
+    font-weight: 600;
+    font-size: 19px;
+  }
+  .learn-header h2{
+    font-size: 45px;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .learn-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    margin-top: 2rem;
+  }
+  .learn-first{
+    background-color:#db5325 ;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 9px;
+  }
+  .learn-first span{
+    background-color: #DF653B;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 1.5rem !important;
+    display: inline-block;
+  }
+  .learn-first h2{
+    color: white;
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 1.5rem;
+  }
+  .learn-first a{
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid #27d17f;
+  }
+  .learn-first a:hover{
+    color: #27d17f;
+  }
+  .learn-second{
+    background-color:rgb(40,209,128) ;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 9px;
+  }
+  .learn-second span{
+    background-color: rgb(62,214,141);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 1.5rem !important;
+    display: inline-block;
+  }
+  .learn-second h2{
+    color: white;
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 1.5rem;
+  }
+  .learn-second a{
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid #27d17f;
+    margin-top: 3rem;
+    display: inline-block;
+  }
+  
 
 
 
@@ -387,6 +567,29 @@ export default {
     column-gap: 0rem;
     row-gap: 1rem;
   }
+  .features{
+    margin-top: 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .features-card{
+    background: #161719;
+    display: grid;
+    margin-top: 2rem;
+    border-radius: 9px;
+    grid-template-columns: 1fr;
+  }
+  .learn{
+    margin-top: 5rem;
+    margin-left:10px;
+    margin-right: 10px;
+  }
+  .learn-cards{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    margin-top: 2rem;
+  }
   }
 
 
@@ -451,6 +654,29 @@ export default {
     column-gap: 0rem;
     row-gap: 1rem;
   }
+  .features{
+    margin-top: 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .features-card{
+    background: #161719;
+    display: grid;
+    margin-top: 2rem;
+    border-radius: 9px;
+    grid-template-columns: 1fr;
+  }
+  .learn{
+    margin-top: 5rem;
+    margin-left:10px;
+    margin-right: 10px;
+  }
+  .learn-cards{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    margin-top: 2rem;
+  }
   }
 
   @media(min-width:769px) and (max-width:1200px){
@@ -486,6 +712,16 @@ export default {
   }
   .invest{
     margin-left: 10px;
+    margin-right: 10px;
+  }
+  .features{
+    margin-top: 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .learn{
+    margin-top: 5rem;
+    margin-left:10px;
     margin-right: 10px;
   }
   }

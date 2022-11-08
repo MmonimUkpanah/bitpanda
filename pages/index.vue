@@ -113,24 +113,27 @@
         <div class="invest-options">
           <h4>Stocks*</h4>
           <p>Invest in fractions of your favorite companies without committing to a whole share</p>
-          <img src="stocks.png" alt="">
+          <img class="crypto-img" src="stocks.png" alt="">
         </div>
         <div class="invest-options">
           <h4>ETFs*</h4>
           <p>Invest in fractions of your favorite ETFs* without committing to a whole share</p>
           <img class="crypto-img" src="ETFs.png" alt="">
         </div>
-        <div class="invest-options invest-bottom">
+        <div class="invest-options">
           <h4>Commodities*</h4>
           <p>Fortify your portfolio with commodities* and shield it against inflation.</p>
+          <img class="crypto-img" src="Commodities.png" alt="">
         </div>
-        <div class="invest-options invest-bottom">
+        <div class="invest-options">
           <h4>Crypto Indices</h4>
           <p>Auto-invest in the whole crypto market with a single click.</p>
+          <img class="crypto-img" src="indices.png" alt="">
         </div>
-        <div class="invest-options invest-bottom">
+        <div class="invest-options">
           <h4>Precious Metals</h4>
           <p>Diversify your portfolio by invrsting in physically-backed precious metals.</p>
+          <img class="crypto-img" src="metals.png" alt="">
         </div>
       </div>
     </div>
@@ -150,6 +153,9 @@
           <p>Bitpanda Card is the easy way to spend your assets anywhere you want-in-real-time. And it just got easier. Starting today, Apple Pay is available to all our Apple customers.</p>
           <a href="">Read more</a>
         </div>
+        <div class="features-img">
+          <img src="cl.png" alt="">
+        </div>
       </div>
       <div class="features-button">
           <button>See all features</button>
@@ -166,19 +172,84 @@
           <span>BITPANDA BLOG</span>
           <h2>Get the latest company news and industry updates</h2>
           <a href="">Visit Blog</a>
+          <img src="blog.png" alt="">
         </div>
         <div class="learn-second">
           <span>BITPANDA ACADEMY</span>
           <h2>Learn all about investing, Bitcoin and blockchain</h2>
           <a href="">Visit Academy</a>
+          <img src="academy.png" alt="">
         </div>
       </div>
     </div>
+    <div class="reviews">
+      
+    </div>
+    <div class="reg-header">
+      <h4>HELP</h4>
+      <h2>Questions? We are here for you</h2>
+    </div>
+    <div class="reg">
+      <div class="reg1">
+        <img src="/Helpdesk.svg" alt="">
+        <div class="reg-text">
+          <h2>Helpdesk</h2>
+        <p>Our Bitpanda Helpdesk is loaded with in-depth articles to help you troubleshoot problems or learn more on your own.
+        </p>
+       
+
+        <a href="">View licences</a>
+        </div>
+        
+      </div>
+      <div class="reg1">
+        <img src="/Community.svg" alt="">
+        <div class="reg-text">
+          <h2>Community</h2>
+          <p>Join our online community so that you can be the first to hear about company news, new products and much more.
+          </p>
+          
+
+          <a href="">Join us</a>
+        </div>
+        
+      </div>
+      <div class="reg2">
+        <img src="/us.svg" alt="">
+        <div class="reg-text">
+          <h2>Contact us</h2>
+          <p>Want to get in contact with us? We are always available to lend a helping hand through our contact form - no matter the issue
+          </p>
+          
+
+          <a href="">Contact us.</a>
+        </div>
+        
+      </div>
+      
+    </div>
+    <div class="disclaimer">
+      <p>*Bitpanda Stocks enables investing in fractional stocks. Fractional stocks in Europe are always enabled via a contract which replicates the underlying stock or ETF (financial instruments pursuant to section 1 item 7 lit. d WAG 2018). Investing in stocks and ETFs carries risks. For more details see the prospectus at bitpanda.com.</p>
+    </div>
+    <div class="featured">
+      <hr>
+      <div class="featured-img">
+        <p>Featured in</p>
+        <img src="Forbes.svg" alt="">
+        <img src="Bloomberg.svg" alt="">
+        <img src="TC.svg" alt="">
+        <img src="CNBC.svg" alt="">
+        <img src="busy.svg" alt="">
+      </div>
+      <hr>
+    </div>
+    <Footer/>
   </div>
   
 </template>
 
 <script>
+
 export default {
   name: 'IndexPage'
 }
@@ -261,6 +332,22 @@ export default {
   }
   .header-summary p{
     font-size: 19px;
+  }
+  .reg-header{
+    margin-top: 5rem;
+    margin-right: 5rem;
+    margin-left: 5rem;
+    text-align: center;
+  }
+  .reg-header h4{
+    color: #8b8b8b;
+    font-size: 19px;
+    font-weight: 600;
+  }
+  .reg-header h2{
+    font-size: 45px;
+    font-weight: 600;
+    margin: 0.5rem 0;
   }
   .reg{
     margin-left: 5rem;
@@ -397,6 +484,13 @@ export default {
   .features-text a:hover{
     color: #27d17f;
   }
+  .features-img{
+    text-align: center;
+  }
+  .features-img img{
+    max-height: 30rem;
+    width: auto;
+  }
   .features-button{
     text-align: center;
     margin-top: 3rem;
@@ -436,7 +530,7 @@ export default {
   .learn-first{
     background-color:#db5325 ;
     color: white;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 0 1.5rem;
     border-radius: 9px;
   }
   .learn-first span{
@@ -456,6 +550,9 @@ export default {
   .learn-first a{
     text-decoration: none;
     color: white;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
     border-bottom: 2px solid #27d17f;
   }
   .learn-first a:hover{
@@ -464,7 +561,7 @@ export default {
   .learn-second{
     background-color:rgb(40,209,128) ;
     color: white;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 0 1.5rem;
     border-radius: 9px;
   }
   .learn-second span{
@@ -487,6 +584,33 @@ export default {
     border-bottom: 2px solid #27d17f;
     margin-top: 3rem;
     display: inline-block;
+  }
+  .disclaimer{
+    margin-top: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  .disclaimer p{
+    font-weight: 400;
+    color: rgb(76,76,76);
+  }
+  .featured{
+    margin-top: 5rem;
+  }
+  .featured-img{
+    margin-left: 5rem;
+    margin-right: 5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .featured-img  img{
+    max-height: 50px;
+    width: auto;
+  }
+  .featured-img p{
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 1rem;
   }
   
 
@@ -567,6 +691,11 @@ export default {
     column-gap: 0rem;
     row-gap: 1rem;
   }
+  .invest-options{
+    background-color: #f5f5f5;
+    padding: 10px 10px 0px 10px;
+    border-radius: 9px;
+  }
   .features{
     margin-top: 5rem;
     margin-left: 10px;
@@ -589,6 +718,27 @@ export default {
     grid-template-columns: 1fr;
     row-gap: 2rem;
     margin-top: 2rem;
+  }
+  .disclaimer{
+    margin-top: 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .reg-header{
+    margin-top: 5rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+  }
+  .featured-img{
+    margin-left:10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns:  1fr 1fr ;
+  }
+  .featured-img  img{
+    height: 100px;
+    width: 100px;
   }
   }
 
@@ -677,6 +827,23 @@ export default {
     row-gap: 2rem;
     margin-top: 2rem;
   }
+  .disclaimer{
+    margin-top: 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .reg-header{
+    margin-top: 5rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+  }
+  .featured-img{
+    margin-left:10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr ;
+  }
   }
 
   @media(min-width:769px) and (max-width:1200px){
@@ -723,6 +890,23 @@ export default {
     margin-top: 5rem;
     margin-left:10px;
     margin-right: 10px;
+  }
+  .disclaimer{
+    margin-top: 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .reg-header{
+    margin-top: 5rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+  }
+  .featured-img{
+    margin-left:10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr ;
   }
   }
 </style>

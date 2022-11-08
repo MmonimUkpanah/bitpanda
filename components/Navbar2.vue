@@ -2,37 +2,17 @@
     <div class="con">
         <nav class="navbar fixed-top con navbar-expand-lg ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="/logo.svg" alt="logo"></a>
+                <a class="navbar-brand" href="#"><img src="/logo-bitpanda.svg" alt="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <img src="/menu.png" alt="toggler">
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <input class="search" placeholder="Search" type="search" name="" id="">
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Invest</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link ">Learn</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link ">Business</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link">Company</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link ">Help</a>
-                    </li>
+                    
                 </ul>
                 <form class="d-flex button-group" role="search">
-                    <nuxt-link to="login"><button class="login">Login</button></nuxt-link>
-                    <nuxt-link to="signup"><button class="sign">Sign-up</button></nuxt-link>
+                    <p>Help</p>
+                    <nuxt-link to="signup"><button class="sign">Login</button></nuxt-link>
                 </form>
                 </div>
             </div>
@@ -85,12 +65,12 @@
     margin-right: 0.5rem;
 }
 .sign{
-    background-color: #27d17f;
-    color: white;
-    border-radius: 5px;
+    border-radius: 3px;
     font-size: 15px;
     padding: 5px 15px;
-    border: none;
+    color: rgb(28, 28, 30);
+    background: rgb(255, 255, 255);
+    border-color: rgb(39, 209, 127);
 }
 .navbar-toggler{
     background: #27d17f;
@@ -98,6 +78,12 @@
 }
 .search{
     display: none;
+}
+.button-group p{
+    color: rgb(51, 51, 51);
+    font-weight: 600;
+    margin-right: 1rem;
+    margin-top: 0.2rem;
 }
 
 
@@ -131,9 +117,7 @@
     margin-top: 1.5rem;
     margin-bottom: 1rem;
 }
-.button-group{
-    margin-top: 45vh;
-}
+
 .login{
     background-color:#f3f3f2 ; 
     color: black;
@@ -184,9 +168,7 @@
     margin-top: 1.5rem;
     margin-bottom: 1rem;
 }
-.button-group{
-    margin-top: 39vh;
-}
+
 .login{
     background-color:#f3f3f2 ; 
     color: black;

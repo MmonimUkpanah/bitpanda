@@ -24,7 +24,7 @@
         <div class="newswiper-text">
           <h4>1</h4>
           <h2>Register</h2>
-          <p>Sign up to create your free Bitpanda account</p>
+          <p>Sign up to create your free Pay Bay Invest account</p>
           <nuxt-link to="signup"> <button>Get started</button></nuxt-link>
         </div>
       </div>

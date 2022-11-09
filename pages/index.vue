@@ -102,7 +102,7 @@
       <div class="invest-header">
         <h4>INVEST</h4>
         <h2>All your investments.</h2>
-        <h2>All on Bitpanda.</h2>
+        <h2>All on Pay Bay Invest.</h2>
       </div>
       <div class="invest-grid">
         <div class="invest-options">
@@ -155,10 +155,10 @@
       <div class="features-card">
         <div class="features-text">
           <span>
-          BITPANDA CARD
+            PAY BAY INVEST CARD
           </span>
-          <h2>Apple Pay meets Bitpanda Card</h2>
-          <p>Bitpanda Card is the easy way to spend your assets anywhere you want-in-real-time. And it just got easier. Starting today, Apple Pay is available to all our Apple customers.</p>
+          <h2>Apple Pay meets Pay Bay Invest Card</h2>
+          <p>Pay Bay Invest Card is the easy way to spend your assets anywhere you want-in-real-time. And it just got easier. Starting today, Apple Pay is available to all our Apple customers.</p>
           <a href="">Read more</a>
         </div>
         <div class="features-img">
@@ -177,13 +177,13 @@
       </div>
       <div class="learn-cards">
         <div class="learn-first">
-          <span>BITPANDA BLOG</span>
+          <span>PAY BAY INVEST BLOG</span>
           <h2>Get the latest company news and industry updates</h2>
           <a href="">Visit Blog</a>
           <img src="blog.png" alt="">
         </div>
         <div class="learn-second">
-          <span>BITPANDA ACADEMY</span>
+          <span>PAY BAY INVEST ACADEMY</span>
           <h2>Learn all about investing, Bitcoin and blockchain</h2>
           <a href="">Visit Academy</a>
           <img src="academy.png" alt="">
@@ -202,7 +202,7 @@
         <img src="/Helpdesk.svg" alt="">
         <div class="reg-text">
           <h2>Helpdesk</h2>
-        <p>Our Bitpanda Helpdesk is loaded with in-depth articles to help you troubleshoot problems or learn more on your own.
+        <p>Our Pay Bay Invest Helpdesk is loaded with in-depth articles to help you troubleshoot problems or learn more on your own.
         </p>
        
 
@@ -237,7 +237,7 @@
       
     </div>
     <div class="disclaimer">
-      <p>*Bitpanda Stocks enables investing in fractional stocks. Fractional stocks in Europe are always enabled via a contract which replicates the underlying stock or ETF (financial instruments pursuant to section 1 item 7 lit. d WAG 2018). Investing in stocks and ETFs carries risks. For more details see the prospectus at bitpanda.com.</p>
+      <p>*Pay Bay Invest Stocks enables investing in fractional stocks. Fractional stocks in Europe are always enabled via a contract which replicates the underlying stock or ETF (financial instruments pursuant to section 1 item 7 lit. d WAG 2018). Investing in stocks and ETFs carries risks. For more details see the prospectus at paybayinvest.com.</p>
     </div>
     <div class="featured">
       <hr>

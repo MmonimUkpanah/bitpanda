@@ -41,14 +41,14 @@
         <div class="footer-grid-one">
             <h3>Products</h3>
             <p>Card</p>
-            <p>Bitpanda To Go</p>
+            <p>Pay Bay Invest To Go</p>
             <p>BEST</p>
             <p>Pantos</p>
             <p>App</p>
-            <p>Bitpanda Custody</p>
+            <p>Pay Bay Invest Custody</p>
         </div>
         <div class="footer-grid-one">
-            <h3>Bitpanda Pro</h3>
+            <h3>Pay Bay Invest Pro</h3>
             <p>Home</p>
             <p>Markets</p>
             <p>Fees</p>
@@ -71,7 +71,7 @@
         <span>Legal notice</span> <span>Privacy policy</span> <span>Terms & Conditions</span>
         <span>Whistleblower</span> <span>Bug Bounty</span> <span>Cookie settings</span>
         <div class="bitpanda">
-           <span>&#169; 2022 Bitpanda</span> 
+           <span>&#169; 2022 Pay Bay Invest</span> 
         </div>
         
     </div>

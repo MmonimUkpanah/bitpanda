@@ -2,7 +2,7 @@
     <div>
       <Navbar3/>
       <div class="login">
-        <h3>Create your Bitpanda account</h3>
+        <h3>Create your Pay Bay Invest account</h3>
         <form action="">
             <div class="name">
                 <input type="text" placeholder="First Name"> <input type="text" placeholder="Last Name">

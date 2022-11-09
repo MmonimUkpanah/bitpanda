@@ -139,6 +139,14 @@
     </div>
 
     <!-- carousels -->
+    <div class="work">
+      <div class="work-header">
+        <h4>HOW IT WORKS</h4>
+        <h2>Get started in minutes</h2>
+      </div>
+      <Firstslide/>
+    </div>
+    
     <div class="features">
       <div class="features-header">
         <h4>Features</h4>
@@ -611,6 +619,22 @@ export default {
     font-size: 17px;
     font-weight: 600;
     margin-top: 1rem;
+  }
+  .work{
+    margin-top: 5rem;
+  }
+  .work-header{
+    text-align: center;
+  }
+  .work-header h4{
+    color: #8b8b8b;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .work-header h2{
+    font-size: 45px;
+    font-weight: 600;
   }
   
 

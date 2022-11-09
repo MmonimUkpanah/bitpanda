@@ -9,10 +9,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link" >Home</a>
+                    <a class="nav-link" href="dashboard">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" >Portfolio</a>
+                    <a class="nav-link" href="portfolio">Portfolio</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="#">Prices</a>

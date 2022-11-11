@@ -3,16 +3,16 @@
       <Navbar3/>
       <div class="login">
         <h3>Create your Pay Bay Invest account</h3>
-        <form action="">
+        <form method="post" @submit.prevent="signUp">
             <div class="name">
-                <input type="text" placeholder="First Name"> <input type="text" placeholder="Last Name">
+                <input type="text" placeholder="First Name" v-model="signupinfo.first_name"> <input type="text" placeholder="Last Name" v-model="signupinfo.surname">
             </div>
           
-          <input type="email" placeholder="Email">
-          <input type="password" name="" id="" >
-          <input type="text" placeholder="Country of Residence">
-          <button class="login-button">Create Account</button>
-          <button class="account-button">Already have an account?</button>
+          <input type="email" placeholder="Email" v-model="signupinfo.email">
+          <input type="password" name="" id="" placeholder="password"  v-model="signupinfo.password">
+          <input type="password" name="" id="" placeholder="confirm password"  v-model="signupinfo.password2">
+          <button type="submit" class="login-button">Create Account</button>
+          <span class="account-button">Already have an account?</span>
           <div class="confirm">
             <p class="resend">Looking to open a business account? Sign up here</p>
           </div>
@@ -22,7 +22,50 @@
     </div>
   </template>
   
- 
+  <script>
+
+  export default {
+    components: {
+      
+    },
+    data() {
+      return {
+        baseUrl: "https://paybay-invest.herokuapp.com/api/",
+        signupinfo:{
+            email:'',
+            first_name:'',
+            surname:'',
+            password:'',
+            password2:'',
+            profile_value: 120000,
+            stage:"Gold"
+        }
+      };
+    },
+    methods: {
+      async signUp() {
+        try {
+          const response = await this.$axios.post(
+            this.baseUrl + "register/",
+            this.signupinfo
+          );
+          this.$auth.loginWith('local', { data: this.signupinfo })
+          this.$router.push("/dashboard");
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          this.signupinfo = {};
+        }
+      },
+      
+    },
+  
+    mounted() {
+      
+    },
+  };
+  </script>
   
   <style scoped>
     *{
@@ -81,6 +124,8 @@
       border-style: solid;
       padding: 5px 0;
       border-color: rgb(39, 209, 127);
+      display: block;
+      text-align: center;
     }
     .confirm{
       text-align: center;

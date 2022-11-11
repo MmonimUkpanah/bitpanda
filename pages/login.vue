@@ -3,14 +3,14 @@
     <Navbar2/>
     <div class="login">
       <h3>User Login</h3>
-      <form action="">
+      <form action="" @submit.prevent="userLogin()" method="post">
         <label for="email">Email</label>
-        <input type="email">
+        <input type="email" v-model="loginInfo.email">
         <label for="Password" class="mt-3">Password</label>
-        <input type="password" name="" id="">
+        <input type="password" name="" id="" v-model="loginInfo.password">
         <label for="">Forgot your password?</label>
-        <button class="login-button">Login</button>
-        <button class="account-button">Don't have an account yet?</button>
+        <button class="login-button" type="submit">Login</button>
+        <span class="account-button">Don't have an account yet?</span>
         <div class="confirm">
           <p>Did not get a confirmation email?</p>
           <p class="resend">Resend confirmation email</p>
@@ -22,8 +22,52 @@
 </template>
 
 <script>
-export default {
 
+export default {
+  data() {
+    return {
+      loginInfo: {
+        email: '',
+        password: ''
+      },
+      login:true,
+      sig:false,
+      baseUrl: "https://direshop777.herokuapp.com/",
+      
+    }
+  },
+  mounted(){
+      
+  },
+  methods: {
+    async userLogin() {
+      try {
+        
+        let response = await this.$auth.loginWith("local", {
+          data: this.loginInfo,
+        });
+        console.log(response);
+        // this.$auth.setUser(response.data.user)
+        // this.$auth.setUserToken(response.data.token);
+        //  localStorage.setItem('token', response.data.token)
+        // this.$auth.strategy.token.set(response.data.token)
+        // this.$store.state.localStorage.token = response.data.token
+        console.log(this.$auth.user)
+        // console.log(this.$auth.UserToken)
+        console.log(this.$auth.loggedIn)
+        this.$router.push("/dashboard");
+
+
+      } catch (error) {
+        
+        console.log(error);
+        
+      }
+    },
+   
+   
+    
+  }
 }
 </script>
 
@@ -82,6 +126,8 @@ export default {
     border-width: 2px;
     border-style: solid;
     padding: 5px 0;
+    display: block;
+    text-align: center;
     border-color: rgb(39, 209, 127);
   }
   .confirm{

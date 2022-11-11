@@ -37,7 +37,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/uikit.js', ssr: false },
-    
+    { src: '~/plugins/axios.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -51,7 +51,54 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
+  axios: {
+    baseURL: "https://paybay-invest.herokuapp.com/api/",
+    // headers: {
+    //   'Access-Control-Allow-Origin': '*',
+    //   'Access-Control-Allow-Headers': 'Content-Type',
+    //   'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
+    //   'Access-Control-Allow-Credentials': 'true'
+    // }
+  },
+  auth: {
+    strategies: {
+      cookie: {
+        cookie: {
+          // (optional) If set, we check this cookie existence for loggedIn check
+          name: 'XSRF-TOKEN',
+        },
+        endpoints: {
+          // (optional) If set, we send a get request to this endpoint before login
+          csrf: {
+            url: ''
+          }
+        }},
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+          required: true,
+          type: 'token'
+        },
+        user: {
+          property: '',
+          autoFetch: true,
+          global: true,
+        },
+        
+        endpoints: {
+          login: { url: '/login/', method: 'post', propertyName:"token"  },
+          logout: { url: '/logout/', method: 'post' },
+          user: { url: '/user/', method: 'get'  },
+        },
+        
+        
+      }
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

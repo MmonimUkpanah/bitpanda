@@ -2,7 +2,7 @@
     <div class="con">
         <nav class="navbar fixed-top con navbar-expand-lg ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="/logo-bitpanda.svg" alt="logo"></a>
+                <a class="navbar-brand" href="#"><img src="pay.jpeg" alt="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <img src="/menu.png" alt="toggler">
                 </button>

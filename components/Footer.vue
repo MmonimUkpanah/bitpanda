@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="logo">
-        <img src="logo.svg" alt="">
+        <img src="pay.jpeg" alt="">
     </div>
     <div class="footer-grid">
         <div class="footer-grid-one">

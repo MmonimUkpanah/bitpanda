@@ -12,7 +12,7 @@
                 </ul>
                 <form class="d-flex button-group" role="search">
                     <p>Help</p>
-                    <nuxt-link to="signup"><button class="sign">Login</button></nuxt-link>
+                    <nuxt-link to="signup"><button class="sign">Sign Up</button></nuxt-link>
                 </form>
                 </div>
             </div>

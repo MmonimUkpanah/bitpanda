@@ -22,8 +22,12 @@
 </template>
 
 <script>
-
+import ElementUI from "element-ui";
+  import "element-ui/lib/theme-chalk/index.css";
 export default {
+  components: {
+      ElementUI,
+    },
   data() {
     return {
       loginInfo: {
@@ -47,20 +51,19 @@ export default {
           data: this.loginInfo,
         });
         console.log(response);
-        // this.$auth.setUser(response.data.user)
-        // this.$auth.setUserToken(response.data.token);
-        //  localStorage.setItem('token', response.data.token)
-        // this.$auth.strategy.token.set(response.data.token)
-        // this.$store.state.localStorage.token = response.data.token
         console.log(this.$auth.user)
-        // console.log(this.$auth.UserToken)
         console.log(this.$auth.loggedIn)
         this.$router.push("/dashboard");
-
+        this.$message({
+            message: "Welcome back!",
+            type: "success",
+            });
 
       } catch (error) {
-        
-        console.log(error);
+        this.$message({
+            message: error.response.data,
+            type: "warning",
+            });
         
       }
     },

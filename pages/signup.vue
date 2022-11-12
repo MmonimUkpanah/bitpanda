@@ -5,12 +5,19 @@
         <h3>Create your Pay Bay Invest account</h3>
         <form method="post" @submit.prevent="signUp">
             <div class="name">
-                <input type="text" placeholder="First Name" v-model="signupinfo.first_name"> <input type="text" placeholder="Last Name" v-model="signupinfo.surname">
+                <input type="text" required placeholder="First Name" v-model="signupinfo.first_name"> <input type="text" required placeholder="Last Name" v-model="signupinfo.surname">
             </div>
           
-          <input type="email" placeholder="Email" v-model="signupinfo.email">
-          <input type="password" name="" id="" placeholder="password"  v-model="signupinfo.password">
-          <input type="password" name="" id="" placeholder="confirm password"  v-model="signupinfo.password2">
+          <input type="email" placeholder="Email" required v-model="signupinfo.email">
+          <select class="form-select" aria-label="Default select example" v-model="signupinfo.stage">
+          <option selected >Stage</option>
+          <option value="Promo">Promo</option>
+          <option value="Gold">Gold</option>
+          <option value="Silver">Silver</option>
+          <option value="Platinum">Platinum</option>
+        </select>
+          <input type="password" name="" id="" required placeholder="password"  v-model="signupinfo.password">
+          <input type="password" name="" id="" required placeholder="confirm password"  v-model="signupinfo.password2">
           <button type="submit" class="login-button">Create Account</button>
           <span class="account-button">Already have an account?</span>
           <div class="confirm">
@@ -23,10 +30,11 @@
   </template>
   
   <script>
-
+  import ElementUI from "element-ui";
+  import "element-ui/lib/theme-chalk/index.css";
   export default {
     components: {
-      
+      ElementUI,
     },
     data() {
       return {
@@ -38,7 +46,7 @@
             password:'',
             password2:'',
             profile_value: 120000,
-            stage:"Gold"
+            stage:""
         }
       };
     },
@@ -48,12 +56,19 @@
           const response = await this.$axios.post(
             this.baseUrl + "register/",
             this.signupinfo
-          );
-          this.$auth.loginWith('local', { data: this.signupinfo })
-          this.$router.push("/dashboard");
+          )
+          this.$router.push("/login")
+          this.$message({
+            message: "Account created successfully!",
+            type: "success",
+            });
           console.log(response);
         } catch (error) {
           console.log(error);
+          this.$message({
+            message: error.response.data,
+            type: "warning",
+            });
         } finally {
           this.signupinfo = {};
         }
@@ -72,6 +87,16 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    select{
+      width: 100%;
+      display: block;
+      background-color: transparent;
+      color: rgba(0, 0, 0, 0.87);
+      padding: 10px 10px 10px;
+      border-radius: 3px;
+      border: 0.5px solid initial;
+      margin-bottom: 1rem;
     }
     .login{
       width: 40%;
@@ -92,7 +117,7 @@
       color: rgba(0, 0, 0, 0.87);
       padding: 10px 10px 10px;
       border-radius: 3px;
-      border-color: 0.5px solid initial;
+      border: 0.5px solid initial;
       margin-bottom: 1rem;
     }
     .login label{

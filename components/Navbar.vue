@@ -32,7 +32,7 @@
                 </ul>
                 <form class="d-flex button-group" role="search">
                     <nuxt-link to="login"><button class="login">Login</button></nuxt-link>
-                    <nuxt-link to="signup"><button class="sign">Sign-up</button></nuxt-link>
+                    <nuxt-link to="signup"><button class="sign">Signup</button></nuxt-link>
                 </form>
                 </div>
             </div>

@@ -18,16 +18,24 @@
         </div>
         <div class="movers-card">
             <div class="movers-cards">
-                <img src="Screenshot1.png" alt="">
+                <p>Promo package</p>
+                <h2>$0.00</h2>
+               <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
             <div class="movers-cards">
-                <img src="Screenshot2.png" alt="">
+                <p>Gold package</p>
+                <h2>$0.00</h2>
+                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
             <div class="movers-cards">
-                <img src="Screenshot3.png" alt="">
+                <p>Silver package</p>
+                <h2>$0.00</h2>
+                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
             <div class="movers-cards">
-                <img src="Screenshot4.png" alt="">
+                <p>Platinum package</p>
+                <h2>$0.00</h2>
+                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
         </div>
         <hr class="mover-hr">
@@ -64,9 +72,39 @@
 </template>
 
 <script>
+// import { ValidationObserver, ValidationProvider } from "vee-validate";
+// import { FormWizard, TabContent } from "vue-form-wizard";
+// import "vue-form-wizard/dist/vue-form-wizard.min.css";
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
 export default {
+  components: {
+    ElementUI,
+  },
+  data() {
+    return {
+        commodities:{
 
-}
+        },
+      baseUrl: "https://paybay-invest.herokuapp.com/api/",
+    };
+  },
+  methods: {
+    async getCommodities() {
+      try {
+        const response = await this.$axios.get(this.baseUrl + "commodity/");
+        this.commodities = response.data.data;
+        console.log(this.commodities);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+
+  mounted() {
+    this.getCommodities()
+  },
+};
 </script>
 
 <style scoped>
@@ -103,8 +141,22 @@ export default {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         column-gap: 1rem;
     }
-    .movers-cards img{
-        width: 100%;
+    .movers-cards{
+        background: white;
+        padding: 2rem;
+        text-align: center;
+    }
+    .movers-cards p{
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .movers-cards button{
+        background: #16a858;
+        color:white;
+        border: none;
+        padding: 10px;
+        margin-top: 1rem;
+        border-radius: 5px;
     }
     .mover-hr{
         margin-top: 1.5rem;

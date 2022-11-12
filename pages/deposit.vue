@@ -8,57 +8,50 @@
           <div style="height:2rem">
   
           </div>
-          <!-- <div class="movers">
-              <div class="movers-top">
-                  <h4>Top movers</h4>
-              </div>
-             <div class="movers-view">
-                  <h4>View all assets</h4>
-             </div>
+          <div class="deposit">
+            <h3>Deposit</h3>
+            <button class="bank">Crypto</button><button class="crypto">Bank</button>
+
           </div>
-          <div class="movers-card">
-              <div class="movers-cards">
-                  <img src="Screenshot1.png" alt="">
-              </div>
-              <div class="movers-cards">
-                  <img src="Screenshot2.png" alt="">
-              </div>
-              <div class="movers-cards">
-                  <img src="Screenshot3.png" alt="">
-              </div>
-              <div class="movers-cards">
-                  <img src="Screenshot4.png" alt="">
-              </div>
-          </div> -->
-          <!-- <hr class="mover-hr"> -->
-          <div class="two-factor">
-              <div class="two-factor-text">
-                <p>Current portfolio value</p>
-                  <h4>&#x20AC; 00.00</h4>
-                  
-              </div>
-          </div>
-          <!-- <div class="action">
-              <div class="action-great">
-                  <img src="verifynow.svg" alt="">
-                  <h4>Hi Investor, great to see you here!</h4>
-                  <p>Once you're ready, please verify your account.</p>
-                  <button>Verify now</button>
-              </div>
-              <div class="action-eye">
-                  <h6>Watchlist</h6>
-                  <div class="action-eye-center">
-                      <img src="list.svg" alt="">
-                      <p>Keep an eye on assets by tapping a heart icon wherever you see it or start here.</p>
-                      <button>Get Started</button>
-                  </div>
-              </div>
-          </div> -->
       </div>
     </div>
   </template>
   
+  <script>
+  // import { ValidationObserver, ValidationProvider } from "vee-validate";
+  // import { FormWizard, TabContent } from "vue-form-wizard";
+  // import "vue-form-wizard/dist/vue-form-wizard.min.css";
+  import ElementUI from "element-ui";
+  import "element-ui/lib/theme-chalk/index.css";
+  export default {
+    components: {
+      ElementUI,
+    },
+    data() {
+      return {
+          commodities:{
   
+          },
+        baseUrl: "https://paybay-invest.herokuapp.com/api/",
+      };
+    },
+    methods: {
+      async getCommodities() {
+        try {
+          const response = await this.$axios.get(this.baseUrl + "commodity/");
+          this.commodities = response.data.data;
+          console.log(this.commodities);
+        } catch (error) {
+          console.error(error);
+        }
+      },
+    },
+  
+    mounted() {
+      this.getCommodities()
+    },
+  };
+  </script>
   
   <style scoped>
       *{
@@ -94,8 +87,21 @@
           grid-template-columns: 1fr 1fr 1fr 1fr;
           column-gap: 1rem;
       }
-      .movers-cards img{
-          width: 100%;
+      .movers-cards{
+          background: white;
+          padding: 2rem;
+          text-align: center;
+      }
+      .movers-cards p{
+          font-weight: 600;
+          margin-bottom: 1rem;
+      }
+      .movers-cards button{
+          background: #16a858;
+          color:white;
+          border: none;
+          padding: 10px;
+          margin-top: 1rem;
       }
       .mover-hr{
           margin-top: 1.5rem;
@@ -107,11 +113,12 @@
           background: white;
           border-radius: 9px;
           padding: 1rem;
+          display: grid;
+          grid-template-columns: 1fr 3fr 1fr;
       }
       .two-factor-text h4{
           margin-top: 0.5rem;
           margin-bottom: 0.5rem;
-          font-size: 50px;
       }
       .two-factor-button button{
           background: white;
@@ -174,6 +181,31 @@
       border-radius: 5px;
       
       }
+      .deposit{
+        width: 25%;
+        margin: auto;
+        background: white;
+        text-align: center;
+        height: 70vh;
+        border-radius: 9px;
+        padding: 1rem;
+      }
+      .deposit h3{
+        text-transform:uppercase;
+        margin-bottom: 1rem;
+      }
+      .crypto{
+        background: #16a858;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+      }
+      .bank{
+        background: #f5f5f5;
+        color: black;
+        border: none;
+        padding: 5px 15px;
+      }
   
   
       @media(max-width:576px){
@@ -181,6 +213,15 @@
           background: #f5f5f5;
           height: auto;
           margin-top: 2.5rem;
+      }
+      .deposit{
+        width: 100%;
+        margin: auto;
+        background: white;
+        text-align: center;
+        height: 70vh;
+        border-radius: 9px;
+        padding: 1rem;
       }
           .movers{
           margin-left: 10px;
@@ -220,6 +261,15 @@
   
   
       @media(min-width:577px) and (max-width:1200px){
+        .deposit{
+        width: 50%;
+        margin: auto;
+        background: white;
+        text-align: center;
+        height: 100vh;
+        border-radius: 9px;
+        padding: 1rem;
+      }
           .dash{
           background: #f5f5f5;
           height: auto;

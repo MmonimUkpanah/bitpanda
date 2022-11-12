@@ -257,9 +257,8 @@
 </template>
 
 <script>
-
-export default {
-  name: 'IndexPage'
+  export default {
+  auth: false
 }
 </script>
 

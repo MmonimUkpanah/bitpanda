@@ -29,18 +29,24 @@
     },
     data() {
       return {
-          commodities:{
-  
-          },
-        baseUrl: "https://paybay-invest.herokuapp.com/api/",
+          crypto:{},
+          bank:{},
+          baseUrl: "https://paybay-invest.herokuapp.com/api/",
       };
     },
     methods: {
-      async getCommodities() {
+      async getCrypto() {
         try {
-          const response = await this.$axios.get(this.baseUrl + "commodity/");
-          this.commodities = response.data.data;
-          console.log(this.commodities);
+          const response = await this.$axios.get(this.baseUrl + "crypto/");
+          this.crypto = response.data;
+        } catch (error) {
+          console.error(error);
+        }
+      },
+      async getBank() {
+        try {
+          const response = await this.$axios.get(this.baseUrl + "bank/");
+          this.bank = response.data;
         } catch (error) {
           console.error(error);
         }
@@ -48,7 +54,8 @@
     },
   
     mounted() {
-      this.getCommodities()
+      this.getCrypto(),
+      this.getBank
     },
   };
   </script>

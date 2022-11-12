@@ -20,16 +20,58 @@
                 </ul>
                 <form class="d-flex button-group" role="search">
                     <button class="sign">Trade</button>
-                    <button class="sign">Deposit</button>
-                    <button class="log">Send</button>
+                    <button class="log">Deposit</button>
+                    <button class="sign">Send</button>
+                    <button class="log" @click="$auth.logout()">Logout</button>
                     <img src="grey.svg" alt="">
                 </form>
+               
                 </div>
             </div>
         </nav>
     </div>
 </template>
 
+
+<script>
+export default {
+  data(){
+    return{
+      items:[],
+      length:null
+    }
+  },
+//   mounted(){
+//     this.getCart()
+//   },
+  methods:{
+    // viewCart(){
+    //   if (this.$auth.loggedIn == true){
+    //     this.$router.push('/cart')
+    //   }else{
+    //     this.$router.push('/login')
+    //   }
+    // },
+    async logOut() {
+      try {
+        let response = await this.$auth.logoutWith("local");
+        console.log(response)
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    //     getCart() {
+    //   this.$axios.get("https://direshop777.herokuapp.com/api/get-carts/")
+    //     .then((response) => {
+          
+    //       this.items = response.data;
+    //       this.length = this.items.length
+    //       console.log(this.items.length)
+    //     });
+    // },
+  }
+}
+</script>
 
 <style scoped>
 *{
@@ -157,7 +199,24 @@
     border: none;
     width: 50%;
 }
-
+.button-group button{
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.log{
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px 15px;
+    color: #16a858;
+    background: white;
+    border: 1px solid #16a858;
+    margin-left: 0rem;
+    margin-right: 0rem;
+}
+.d-flex{
+    display: block !important;
+}
 }
 
 @media(min-width: 577px) and (max-width:768px){
@@ -207,6 +266,24 @@
     padding: 12px 15px;
     border: none;
     width: 50%;
+}
+.d-flex{
+    display: block !important;
+}
+.button-group button{
+    width: 100%;
+    display: block;
+    margin-bottom: 1rem;
+}
+.log{
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px 15px;
+    color: #16a858;
+    background: white;
+    border: 1px solid #16a858;
+    margin-left: 0rem;
+    margin-right: 0rem;
 }
 }
 

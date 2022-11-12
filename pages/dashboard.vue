@@ -16,30 +16,18 @@
                 <h4>View all assets</h4>
            </div>
         </div>
-        <div class="movers-card">
-            <div class="movers-cards">
-                <p>Promo package</p>
-                <h2>$0.00</h2>
+        <div class="movers-card" >
+            <div class="movers-cards" v-for="(com,index) in commodities" :key="index">
+                <p>{{com.name}}</p>
+                <h6>Price: ${{com.price}}</h6>
+                <h6>Return: ${{com.expected_return}}</h6>
+                <h6>% Change: {{com.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
-            <div class="movers-cards">
-                <p>Gold package</p>
-                <h2>$0.00</h2>
-                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
-            </div>
-            <div class="movers-cards">
-                <p>Silver package</p>
-                <h2>$0.00</h2>
-                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
-            </div>
-            <div class="movers-cards">
-                <p>Platinum package</p>
-                <h2>$0.00</h2>
-                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
-            </div>
+            
         </div>
         <hr class="mover-hr">
-        <div class="two-factor">
+        <!-- <div class="two-factor">
             <div class="two-factor-img">
                 <img src="2fa.svg" alt="">
             </div>
@@ -50,7 +38,7 @@
             <div class="two-factor-button">
                 <button>Set Up</button>
             </div>
-        </div>
+        </div> -->
         <div class="action">
             <div class="action-great">
                 <img src="verifynow.svg" alt="">
@@ -93,7 +81,7 @@ export default {
     async getCommodities() {
       try {
         const response = await this.$axios.get(this.baseUrl + "commodity/");
-        this.commodities = response.data.data;
+        this.commodities = response.data;
         console.log(this.commodities);
       } catch (error) {
         console.error(error);
@@ -144,11 +132,13 @@ export default {
     .movers-cards{
         background: white;
         padding: 2rem;
-        text-align: center;
+    }
+    .movers-cards h6{
+        margin-bottom: 0.5rem;
     }
     .movers-cards p{
         font-weight: 600;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
     .movers-cards button{
         background: #16a858;

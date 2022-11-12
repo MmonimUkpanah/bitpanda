@@ -132,7 +132,7 @@
     margin-bottom: 1rem;
 }
 .button-group{
-    margin-top: 45vh;
+    margin-top: 0;
 }
 .login{
     background-color:#f3f3f2 ; 
@@ -185,7 +185,7 @@
     margin-bottom: 1rem;
 }
 .button-group{
-    margin-top: 39vh;
+    margin-top: 0;
 }
 .login{
     background-color:#f3f3f2 ; 

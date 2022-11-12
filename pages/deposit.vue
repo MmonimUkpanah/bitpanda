@@ -10,8 +10,25 @@
           </div>
           <div class="deposit">
             <h3>Deposit</h3>
-            <button class="bank">Crypto</button><button class="crypto">Bank</button>
-
+            <button class="bank" @click="viewCrypto()">Crypto</button><button class="crypto" @click="viewBank()">Bank</button>
+            <div class="cryptowallet" v-if="showCrypto" >
+                <div class="crypto1" v-for="(c, index) in crypto" :key="index">
+                    <p>{{c.wallet_name}}</p>
+                    <p>{{c.wallet_address}}</p>
+                    <button @click="copyAddress(c)">Copy Address</button>
+                </div>
+            </div>
+            <div class="bankwallet"  v-else>
+                <div class="crypto1" v-for="(c, index) in bank" :key="index">
+                    <p>{{c.bank_name}}</p>
+                    <p>{{c.bank_country}}</p>
+                    <p>{{c.bank_state}}</p>
+                    <p>{{c.bank_address}}</p>
+                    <p>{{c.name}}</p>
+                    <p>{{c.account}}</p>
+                    <button @click="copyAccount(c)">Copy Account Number</button>
+                </div>
+            </div>
           </div>
       </div>
     </div>
@@ -29,6 +46,10 @@
     },
     data() {
       return {
+          crypto1:{},
+          crypto2:{},
+          crypto3:{},
+          showCrypto:true,
           crypto:{},
           bank:{},
           baseUrl: "https://paybay-invest.herokuapp.com/api/",
@@ -45,17 +66,37 @@
       },
       async getBank() {
         try {
-          const response = await this.$axios.get(this.baseUrl + "bank/");
+          const response = await this.$axios.get(this.baseUrl + "withdrawbank/");
           this.bank = response.data;
         } catch (error) {
           console.error(error);
         }
       },
+      async copyAddress(c){
+        await navigator.clipboard.writeText(c.wallet_address);
+        this.$message({
+            message: "Address Copied!",
+            type: "success",
+            });
+      },
+      async copyAccount(c){
+        await navigator.clipboard.writeText(c.account);
+        this.$message({
+            message: "Account Number Copied!",
+            type: "success",
+            });
+      },
+      viewCrypto(){
+        this.showCrypto = true;
+      },
+      viewBank(){
+        this.showCrypto = false;
+      },
     },
   
     mounted() {
       this.getCrypto(),
-      this.getBank
+      this.getBank()
     },
   };
   </script>
@@ -189,11 +230,11 @@
       
       }
       .deposit{
-        width: 25%;
+        width: 30%;
         margin: auto;
         background: white;
         text-align: center;
-        height: 70vh;
+        height: 80vh;
         border-radius: 9px;
         padding: 1rem;
       }
@@ -213,6 +254,35 @@
         border: none;
         padding: 5px 15px;
       }
+      .cryptowallet{
+        background: #f5f5f5; 
+        padding: 1rem;
+      }
+      .cryptowallet button{
+        background: #16a858;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+      }
+      .bankwallet{
+        background: #16a858;
+        color: white; 
+        padding: 1rem;
+      }
+    .bankwallet p{
+        margin-bottom: 0.5rem;
+    }
+    .bankwallet button{
+        border: none;
+        padding: 5px 15px;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        color: #16a858;
+    }
+
   
   
       @media(max-width:576px){
@@ -221,6 +291,10 @@
           height: auto;
           margin-top: 2.5rem;
       }
+      .cryptowallet{
+        background: #f5f5f5; 
+        padding: 0rem;
+      }
       .deposit{
         width: 100%;
         margin: auto;
@@ -228,7 +302,7 @@
         text-align: center;
         height: 70vh;
         border-radius: 9px;
-        padding: 1rem;
+        padding: 0rem;
       }
           .movers{
           margin-left: 10px;

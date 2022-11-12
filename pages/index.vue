@@ -4,7 +4,7 @@
     <div class="header">
       <div class="header-left">
         <h1>Invest in what you believe in </h1>
-        <button>Start Investing</button>
+        <nuxt-link to="login"><button>Start Investing</button></nuxt-link>
       </div>
       <div class="header-right">
         <div class="header-img">
@@ -139,13 +139,13 @@
     </div>
 
     <!-- carousels -->
-    <div class="work">
+    <!-- <div class="work">
       <div class="work-header">
         <h4>HOW IT WORKS</h4>
         <h2>Get started in minutes</h2>
       </div>
       <Firstslide/>
-    </div>
+    </div> -->
     
     <div class="features">
       <div class="features-header">
@@ -172,20 +172,32 @@
     </div>
     <div class="learn">
       <div class="learn-header">
-        <h4>LEARN</h4>
-        <h2>Boost your financial literacy skills</h2>
+        <h4>INVEST</h4>
+        <h2>Boost your passive income sources</h2>
       </div>
       <div class="learn-cards">
         <div class="learn-first">
-          <span>PAY BAY INVEST BLOG</span>
-          <h2>Get the latest company news and industry updates</h2>
-          <a href="">Visit Blog</a>
+          <!-- <span>PAY BAY INVEST BLOG</span> -->
+          <h2>Promo</h2>
+          <!-- <a href="">Visit Blog</a> -->
           <img src="blog.png" alt="">
         </div>
         <div class="learn-second">
-          <span>PAY BAY INVEST ACADEMY</span>
-          <h2>Learn all about investing, Bitcoin and blockchain</h2>
-          <a href="">Visit Academy</a>
+          <!-- <span>PAY BAY INVEST ACADEMY</span> -->
+          <h2>Gold</h2>
+          <!-- <a href="">Visit Academy</a> -->
+          <img src="academy.png" alt="">
+        </div>
+        <div class="learn-first">
+          <!-- <span>PAY BAY INVEST BLOG</span> -->
+          <h2>Silver</h2>
+          <!-- <a href="">Visit Blog</a> -->
+          <img src="blog.png" alt="">
+        </div>
+        <div class="learn-second">
+          <!-- <span>PAY BAY INVEST ACADEMY</span> -->
+          <h2>Platinum</h2>
+          <!-- <a href="">Visit Academy</a> -->
           <img src="academy.png" alt="">
         </div>
       </div>
@@ -530,7 +542,7 @@
   }
   .learn-cards{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 2rem;
     margin-top: 2rem;
   }

@@ -17,14 +17,35 @@
            </div>
         </div>
         <div class="movers-card" >
-            <div class="movers-cards" v-for="(com,index) in commodities" :key="index">
-                <p>{{com.name}}</p>
-                <h6>Price: ${{com.price}}</h6>
-                <h6>Return: ${{com.expected_return}}</h6>
-                <h6>% Change: {{com.percentage}}</h6>
+            <div class="movers-cards" style="background-color:blue">
+                <p>{{com1.name}}</p>
+                <h6>Price: ${{com1.price}}</h6>
+                <h6>Return: ${{com1.expected_return}}</h6>
+                <h6>% Change: {{com1.percentage}}</h6>
+               <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
+            </div>
+            <div class="movers-cards" style="background-color:goldenrod">
+                <p>{{com3.name}}</p>
+                <h6>Price: ${{com3.price}}</h6>
+                <h6>Return: ${{com3.expected_return}}</h6>
+                <h6>% Change: {{com3.percentage}}</h6>
+               <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
+            </div>
+            <div class="movers-cards" style="background-color:silver">
+                <p>{{com2.name}}</p>
+                <h6>Price: ${{com2.price}}</h6>
+                <h6>Return: ${{com2.expected_return}}</h6>
+                <h6>% Change: {{com2.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
             
+            <div class="movers-cards" style="background-color:platinum;color: #000;">
+                <p  style="color:#000">{{com4.name}}</p>
+                <h6 style="color:#000">Price: ${{com4.price}}</h6>
+                <h6 style="color:#000">Return: ${{com4.expected_return}}</h6>
+                <h6 style="color:#000">% Change: {{com4.percentage}}</h6>
+               <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
+            </div>
         </div>
         <hr class="mover-hr">
         <!-- <div class="two-factor">
@@ -71,9 +92,10 @@ export default {
   },
   data() {
     return {
-        commodities:{
-
-        },
+        com1:{},
+        com2:{},
+        com3:{},
+        com4:{},
       baseUrl: "https://paybay-invest.herokuapp.com/api/",
     };
   },
@@ -81,7 +103,10 @@ export default {
     async getCommodities() {
       try {
         const response = await this.$axios.get(this.baseUrl + "commodity/");
-        this.commodities = response.data;
+        this.com1 = response.data[0];
+        this.com2 = response.data[1];
+        this.com3 = response.data[2];
+        this.com4 = response.data[3];
         console.log(this.commodities);
       } catch (error) {
         console.error(error);
@@ -132,9 +157,11 @@ export default {
     .movers-cards{
         background: white;
         padding: 2rem;
+        color: white;
     }
     .movers-cards h6{
         margin-bottom: 0.5rem;
+        color: white;
     }
     .movers-cards p{
         font-weight: 600;

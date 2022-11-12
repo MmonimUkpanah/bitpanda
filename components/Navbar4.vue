@@ -19,10 +19,9 @@
                     </li>
                 </ul>
                 <form class="d-flex button-group" role="search">
-                    <button class="sign">Trade</button>
                     <button class="log">Deposit</button>
                     <button class="sign">Send</button>
-                    <button class="log" @click="$auth.logout()">Logout</button>
+                    <button class="logout" @click="$auth.logout()">Logout</button>
                     <img src="grey.svg" alt="">
                 </form>
                
@@ -124,6 +123,16 @@ export default {
     background: #16a858;
     border: 1px solid #16a858;
 }
+.logout{
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px 15px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
 .log{
     border-radius: 3px;
     font-size: 15px;
@@ -217,6 +226,16 @@ export default {
 .d-flex{
     display: block !important;
 }
+.logout{
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px 15px;
+    margin-left: 0rem;
+    margin-right: 0rem;
+}
 }
 
 @media(min-width: 577px) and (max-width:768px){
@@ -282,6 +301,16 @@ export default {
     color: #16a858;
     background: white;
     border: 1px solid #16a858;
+    margin-left: 0rem;
+    margin-right: 0rem;
+}
+.logout{
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px 15px;
     margin-left: 0rem;
     margin-right: 0rem;
 }

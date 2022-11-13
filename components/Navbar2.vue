@@ -83,7 +83,7 @@
     color: rgb(51, 51, 51);
     font-weight: 600;
     margin-right: 1rem;
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
 }
 
 
@@ -137,7 +137,15 @@
     border: none;
     width: 50%;
 }
-
+.d-flex{
+    display: block !important;
+    text-align: center !important;
+}
+.button-group button{
+    width: 100%;
+    margin-top: 1rem;
+    
+}
 }
 
 @media(min-width: 577px) and (max-width:768px){
@@ -187,6 +195,14 @@
     padding: 12px 15px;
     border: none;
     width: 50%;
+}.d-flex{
+    display: block !important;
+    text-align: center !important;
+}
+.button-group button{
+    width: 100%;
+    margin-top: 1rem;
+    
 }
 }
 

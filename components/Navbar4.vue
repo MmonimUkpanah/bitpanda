@@ -222,6 +222,12 @@ export default {
 }
 .d-flex{
     display: block !important;
+    text-align: center !important;
+}
+.button-group button{
+    width: 100%;
+    margin-top: 1rem;
+    
 }
 .logout{
     background: red;
@@ -285,11 +291,12 @@ export default {
 }
 .d-flex{
     display: block !important;
+    text-align: center !important;
 }
 .button-group button{
     width: 100%;
-    display: block;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    
 }
 .log{
     border-radius: 3px;

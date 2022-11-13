@@ -134,6 +134,14 @@
 .button-group{
     margin-top: 0;
 }
+.button-group button{
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.d-flex{
+    display: block !important;
+}
 .login{
     background-color:#f3f3f2 ; 
     color: black;
@@ -205,6 +213,14 @@
     padding: 12px 15px;
     border: none;
     width: 50%;
+}
+.button-group button{
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.d-flex{
+    display: block !important;
 }
 }
 

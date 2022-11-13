@@ -9,10 +9,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link" href="dashboard">Home</a>
+                    <nuxt-link class="nav-link" to="dashboard">Home</nuxt-link>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="portfolio">Portfolio</a>
+                    <nuxt-link class="nav-link" to="portfolio">Portfolio</nuxt-link>
                     </li>
                 </ul>
                 <form class="d-flex button-group" role="search">
@@ -95,6 +95,7 @@ export default {
     font-size: 15px;
     font-weight: 600;
     margin-right: 1rem;
+    text-decoration: none;
 }
 .nav-link:hover{
     border-bottom: 2px solid #27d17f !important;

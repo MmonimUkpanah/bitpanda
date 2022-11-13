@@ -20,12 +20,12 @@
             </div>
             <div class="bankwallet"  v-else>
                 <div class="crypto1" v-for="(c, index) in bank" :key="index">
-                    <p>{{c.bank_name}}</p>
-                    <p>{{c.bank_country}}</p>
-                    <p>{{c.bank_state}}</p>
-                    <p>{{c.bank_address}}</p>
-                    <p>{{c.name}}</p>
-                    <p>{{c.account}}</p>
+                    <p>Bank name: {{c.bank_name}}</p>
+                    <p>Country: {{c.bank_country}}</p>
+                    <p>State: {{c.bank_state}}</p>
+                    <p>Address: {{c.bank_address}}</p>
+                    <p>Account Name: {{c.name}}</p>
+                    <p>Account Number: {{c.account}}</p>
                     <button @click="copyAccount(c)">Copy Account Number</button>
                 </div>
             </div>

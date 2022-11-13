@@ -2,7 +2,7 @@
     <div class="con">
         <nav class="navbar fixed-top con navbar-expand-lg ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="pay.jpeg" alt="logo"></a>
+                <a class="navbar-brand" href="dashboard"><img src="pay.jpeg" alt="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <img src="/menu.png" alt="toggler">
                 </button>
@@ -14,13 +14,9 @@
                     <li class="nav-item">
                     <a class="nav-link" href="portfolio">Portfolio</a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Prices</a>
-                    </li>
                 </ul>
                 <form class="d-flex button-group" role="search">
                     <button class="log">Deposit</button>
-                    <button class="sign">Send</button>
                     <button class="logout" @click="$auth.logout()">Logout</button>
                     <img src="grey.svg" alt="">
                 </form>

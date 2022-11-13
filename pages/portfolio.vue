@@ -34,9 +34,16 @@
           <div class="two-factor">
               <div class="two-factor-text">
                 <p>Current portfolio value</p>
-                  <h4>&#x20AC; 00.00</h4>
-                  
-              </div>
+                <h4>${{value}}</h4>
+                <button class="with" v-if="about" @click="withdrawMode()">Withdraw</button>  <button class="cancel" v-else @click="cancelWithdrawal()">Cancel</button>
+                <div class="withdraw" v-if="mode">
+                    <form @submit.prevent="withdrawFunds()">
+                        <input type="number" name="" required v-model="amount" placeholder="Amount" id="">
+                        <button type="submit">Withdraw</button>
+                    </form>
+                    
+                </div>
+            </div>
           </div>
           <!-- <div class="action">
               <div class="action-great">
@@ -58,7 +65,79 @@
     </div>
   </template>
   
+  <script>
+  // import { ValidationObserver, ValidationProvider } from "vee-validate";
+  // import { FormWizard, TabContent } from "vue-form-wizard";
+  // import "vue-form-wizard/dist/vue-form-wizard.min.css";
+  import ElementUI from "element-ui";
+  import "element-ui/lib/theme-chalk/index.css";
+  export default {
+    components: {
+      ElementUI,
+    },
+    data() {
+      return {
+        portfolio:{},
+        value:0,
+        about:true,
+        mode:false,
+        amount:null,
+        baseUrl: "https://paybay-invest.herokuapp.com/api/",
+      };
+    },
+    methods: {
+      async getPortfolio() {
+        try {
+          const response = await this.$axios.get(this.baseUrl + "dashboard/");
+          this.portfolio = response.data;
+        this.value = Number(this.portfolio[0].profile_value);
+        } catch (error) {
+          console.error(error);
+        }
+      },
+      withdrawMode(){
+        this.about = false;
+        this.mode = true;
+      },
+      cancelWithdrawal(){
+        this.about = true;
+        this.mode = false;
+        this.amount= null
+      },
+      withdrawFunds(){
+        console.log(this.amount)
+        console.log(this.value)
+        if (this.value <= this.amount){
+            this.$message({
+            message: "Insufficient funds",
+            type: "warning",
+            });
+        }else{
+            try {
+          const response = this.$axios.get(this.baseUrl + "withdraw/",this.amount);
+          console.log(response)
+        } catch (error) {
+          console.error(error);
+        }
+        }
+        // if (this.amount > this.value ){
+        //     this.$message({
+        //     message: "Insufficient funds",
+        //     type: "warning",
+        //     });
+        // }
+        
+      }
+   
+    
+    },
   
+    mounted() {
+    //   this.getCrypto(),
+       this.getPortfolio()
+    },
+  };
+  </script>
   
   <style scoped>
       *{
@@ -107,6 +186,7 @@
           background: white;
           border-radius: 9px;
           padding: 1rem;
+        
       }
       .two-factor-text h4{
           margin-top: 0.5rem;
@@ -172,14 +252,43 @@
       width: 100%;
       border: 2px solid #16a858;
       border-radius: 5px;
-      
+      }
+      .two-factor-text .with{
+        background: #16a858;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+      }
+      .two-factor-text .cancel{
+        background: red;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+      }
+      .withdraw{
+        margin-top: 1rem;
+      }
+      .withdraw input{
+        border: 1px solid initial;
+        background: #f5f5f5;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+      .withdraw button{
+        background: #16a858;
+        color: white;
+        border: none;
+        padding: 7px 25px;
+        border-radius: 5px;
       }
   
   
       @media(max-width:576px){
           .dash{
           background: #f5f5f5;
-          height: auto;
+          min-height: 100vh;
           margin-top: 2.5rem;
       }
           .movers{
@@ -215,6 +324,38 @@
           grid-template-columns: 1fr;
           row-gap: 1rem;
       }
+      .withdraw input{
+        border: 1px solid initial;
+        background: #f5f5f5;
+        padding: 5px 10px;
+        border-radius: 5px;
+        width: 100%;
+      }
+      .withdraw button{
+        background: #16a858;
+        color: white;
+        border: none;
+        padding: 7px 25px;
+        border-radius: 5px;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      .two-factor-text .with{
+        background: #16a858;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        width: 100%;
+      }
+      .two-factor-text .cancel{
+        background: red;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        width: 100%;
+      }
       }
   
   
@@ -222,7 +363,7 @@
       @media(min-width:577px) and (max-width:1200px){
           .dash{
           background: #f5f5f5;
-          height: auto;
+          height: 100vh;
           margin-top: 2.5rem;
       }
           .movers{
@@ -246,7 +387,7 @@
           border-radius: 9px;
           padding: 1rem;
           display: grid;
-          grid-template-columns: 1fr 3fr 1fr;
+          grid-template-columns: 1fr  1fr;
       }
       .action{
           margin-top: 2rem;
@@ -256,6 +397,37 @@
           grid-template-columns: 1fr 1fr;
           row-gap: 1rem;
       }
-  
+      .withdraw input{
+        border: 1px solid initial;
+        background: #f5f5f5;
+        padding: 5px 10px;
+        border-radius: 5px;
+        width: 100%;
+      }
+      .withdraw button{
+        background: #16a858;
+        color: white;
+        border: none;
+        padding: 7px 25px;
+        border-radius: 5px;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      .two-factor-text .with{
+        background: #16a858;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        width: 100%;
+      }
+      .two-factor-text .cancel{
+        background: red;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        width: 100%;
+      }
       }
   </style>

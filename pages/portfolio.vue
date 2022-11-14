@@ -198,6 +198,10 @@
           this.bank = {},
           this.amount = ""
         } catch (error) {
+          this.$message({
+            message: error.response.data,
+            type: "warning",
+            });
           console.log(error);
         }
         }

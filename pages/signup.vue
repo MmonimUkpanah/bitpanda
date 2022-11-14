@@ -9,13 +9,17 @@
             </div>
           
           <input type="email" placeholder="Email" required v-model="signupinfo.email">
+          <input type="date"  required v-model="signupinfo.dob">
+          <input type="number" max="2147483647" placeholder="Phone Number" required v-model="signupinfo.phone">
+          <input type="text" placeholder="address" required v-model="signupinfo.address">
+          <input type="number" max="2147483647" placeholder="Postal code" required v-model="signupinfo.postal_code">
           <select class="form-select" aria-label="Default select example" v-model="signupinfo.stage">
-          <option selected >Stage</option>
-          <option value="Promo">Promo</option>
-          <option value="Gold">Gold</option>
-          <option value="Silver">Silver</option>
-          <option value="Platinum">Platinum</option>
-        </select>
+            <option selected >Stage</option>
+            <option value="Promo">Promo</option>
+            <option value="Gold">Gold</option>
+            <option value="Silver">Silver</option>
+            <option value="Platinum">Platinum</option>
+          </select>
           <input type="password" name="" id="" required placeholder="password"  v-model="signupinfo.password">
           <input type="password" name="" id="" required placeholder="confirm password"  v-model="signupinfo.password2">
           <button type="submit" class="login-button">Create Account</button>
@@ -46,6 +50,10 @@
             surname:'',
             password:'',
             password2:'',
+            phone:'',
+            dob:'',
+            address:'',
+            postal_code:'',
             profile_value: 120000,
             stage:""
         }

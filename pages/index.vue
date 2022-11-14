@@ -132,7 +132,7 @@
         </div>
         <div class="invest-options">
           <h4>Precious Metals</h4>
-          <p>Diversify your portfolio by invrsting in physically-backed precious metals.</p>
+          <p>Diversify your portfolio by investing in physically-backed precious metals.</p>
           <img class="crypto-img" src="metals.png" alt="">
         </div>
       </div>
@@ -255,6 +255,21 @@
     <div class="disclaimer">
       <p>*Pay Bay Invest Stocks enables investing in fractional stocks. Fractional stocks in Europe are always enabled via a contract which replicates the underlying stock or ETF (financial instruments pursuant to section 1 item 7 lit. d WAG 2018). Investing in stocks and ETFs carries risks. For more details see the prospectus at paybayinvest.com.</p>
     </div>
+
+    <div class="counter">
+      <div>
+        <h2 class="scroll-counter" data-counter-time="2500">5000</h2>
+        <h2>Withdrawals</h2>
+      </div>
+      <div>
+        <h2 class="scroll-counter" data-counter-time="5000">1000</h2>
+        <h2>Investors</h2>
+      </div>
+      <div >
+        <h2 class="scroll-counter" data-counter-time="5000">700</h2>
+        <h2>Satisfied Clients</h2>
+      </div>
+    </div>
     <div class="featured">
       <hr>
       <div class="featured-img">
@@ -289,6 +304,66 @@
   components: {
       
     },
+    mounted(){
+      document.addEventListener("DOMContentLoaded", function() {
+  // You can change this class to specify which elements are going to behave as counters.
+  var elements = document.querySelectorAll(".scroll-counter")
+
+  elements.forEach(function(item) {
+    // Add new attributes to the elements with the '.scroll-counter' HTML class
+    item.counterAlreadyFired = false
+    item.counterSpeed = item.getAttribute("data-counter-time") / 45
+    item.counterTarget = +item.innerText
+    item.counterCount = 0
+    item.counterStep = item.counterTarget / item.counterSpeed
+
+    item.updateCounter = function() {
+      item.counterCount = item.counterCount + item.counterStep
+      item.innerText = Math.ceil(item.counterCount)
+
+      if (item.counterCount < item.counterTarget) {
+        setTimeout(item.updateCounter, item.counterSpeed)
+      } else {
+        item.innerText = item.counterTarget
+      }
+    }
+  })
+
+  // Function to determine if an element is visible in the web page
+  var isElementVisible = function isElementVisible(el) {
+    var scroll = window.scrollY || window.pageYOffset
+    var boundsTop = el.getBoundingClientRect().top + scroll
+    var viewport = {
+      top: scroll,
+      bottom: scroll + window.innerHeight,
+    }
+    var bounds = {
+      top: boundsTop,
+      bottom: boundsTop + el.clientHeight,
+    }
+    return (
+      (bounds.bottom >= viewport.top && bounds.bottom <= viewport.bottom) ||
+      (bounds.top <= viewport.bottom && bounds.top >= viewport.top)
+    )
+  }
+
+  // Funciton that will get fired uppon scrolling
+  var handleScroll = function handleScroll() {
+    elements.forEach(function(item, id) {
+      if (true === item.counterAlreadyFired) return
+      if (!isElementVisible(item)) return
+      item.updateCounter()
+      item.counterAlreadyFired = true
+    })
+  }
+
+  // Fire the function on scroll
+  window.addEventListener("scroll", handleScroll)
+})
+    },
+  methods:{
+    
+  }
 }
 </script>
 
@@ -685,7 +760,18 @@
       }
   
 
-
+      .counter{
+        background: #27d17f;
+        color: white;
+        margin: 5rem 5rem 0 5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 3rem;
+        text-align: center;
+      }
+      .counter h3, .counter h2{
+        color: white;
+      }
 
   @media (max-width:576px) {
     .whatsapp-icon {
@@ -790,6 +876,9 @@
     border-radius: 9px;
     grid-template-columns: 1fr;
   }
+  h2{
+    color: black;
+  }
   .learn{
     margin-top: 5rem;
     margin-left:10px;
@@ -822,6 +911,19 @@
     height: 100px;
     width: 100px;
   }
+  .counter{
+        background: #27d17f;
+        color: white;
+        margin: 5rem 10px 0 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        padding: 1rem 10px;
+        text-align: center;
+      }
+      .counter h3, .counter h2{
+        color: white;
+      }
   }
 
 
@@ -916,7 +1018,7 @@
   }
   .learn-cards{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     row-gap: 2rem;
     margin-top: 2rem;
   }
@@ -937,6 +1039,20 @@
     display: grid;
     grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr ;
   }
+ 
+  .counter{
+        background: #27d17f;
+        color: white;
+        margin: 5rem 10px 0 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 2rem;
+        padding: 3rem 10px;
+        text-align: center;
+      }
+      .counter h3, .counter h2{
+        color: white;
+      } 
   }
 
   @media(min-width:769px) and (max-width:1200px){
@@ -1001,5 +1117,18 @@
     display: grid;
     grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr ;
   }
+  .counter{
+        background: #27d17f;
+        color: white;
+        margin: 5rem 10px 0 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 2rem;
+        padding: 3rem 10px;
+        text-align: center;
+      }
+      .counter h3, .counter h2{
+        color: white;
+      } 
   }
 </style>

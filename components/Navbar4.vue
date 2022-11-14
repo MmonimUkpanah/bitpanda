@@ -14,12 +14,10 @@
                     <li class="nav-item">
                     <nuxt-link class="nav-link" to="portfolio">Portfolio</nuxt-link>
                     </li>
-                    <li class="nav-item">
-                    <nuxt-link class="nav-link" to="update">Update Profile</nuxt-link>
-                    </li>
+                    
                 </ul>
                 <form class="d-flex button-group" role="search">
-                    <button class="log">Deposit</button>
+                    <nuxt-link to="deposit"><button class="log">Deposit</button></nuxt-link>
                     <button class="logout" @click="$auth.logout()">Logout</button>
                     <img src="grey.svg" alt="">
                 </form>

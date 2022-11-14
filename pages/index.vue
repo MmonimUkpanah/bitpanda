@@ -183,19 +183,19 @@
           <p>Minimum Investment: $1,000</p>
           <img src="blog.png" alt="">
         </div>
-        <div class="learn-second">
-          <!-- <span>PAY BAY INVEST ACADEMY</span> -->
-          <h2>Gold</h2>
-          <!-- <a href="">Visit Academy</a> -->
-          <p>Minimum Investment: $5,000</p>
-          <img src="academy.png" alt="">
-        </div>
         <div class="learn-first">
           <!-- <span>PAY BAY INVEST BLOG</span> -->
           <h2>Silver</h2>
           <!-- <a href="">Visit Blog</a> -->
           <p>Minimum Investment: $2,000</p>
           <img src="blog.png" alt="">
+        </div>
+        <div class="learn-second">
+          <!-- <span>PAY BAY INVEST ACADEMY</span> -->
+          <h2>Gold</h2>
+          <!-- <a href="">Visit Academy</a> -->
+          <p>Minimum Investment: $5,000</p>
+          <img src="academy.png" alt="">
         </div>
         <div class="learn-second">
           <!-- <span>PAY BAY INVEST ACADEMY</span> -->
@@ -209,7 +209,7 @@
     <div class="reviews">
       
     </div>
-    <div class="reg-header">
+    <div class="reg-header" id="help">
       <h4>HELP</h4>
       <h2>Questions? We are here for you</h2>
     </div>

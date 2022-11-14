@@ -11,23 +11,33 @@
                     <li class="nav-item">
                     <input class="search" placeholder="Search" type="search" name="" id="">
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Invest</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link ">Learn</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link ">Business</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" @click="displayDropdown()" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Invest
+                        </a>
+                        <ul class="dropdown-menu" v-if="dropdown">
+                            <div>
+                                <li><h6>Top selling cryptocurrencies</h6> </li>
+                                <li><img src="bitcoin.png" alt=""> Bitcoin </li>
+                                <li> <img src="ethereum.png" alt=""> Ethereum</li>
+                                <li> <img src="tether.png" alt=""> Tether</li>
+                                <li> <img src="bnb.png" alt=""> BNB</li>
+                            </div>
+                            <div>
+                                <li><h6>Top selling stocks</h6> </li>
+                                <li><img src="apple.png" alt=""> Apple </li>
+                                <li> <img src="tesla.png" alt=""> Tesla</li>
+                                <li> <img src="pay.png" alt=""> Paypal</li>
+                                <li> <img src="twitter.png" alt=""> Twitter</li>
+                            </div>
+                            
+                        </ul>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link">Company</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link ">Help</a>
+                    <a class="nav-link " href="#help">Help</a>
                     </li>
                 </ul>
                 <form class="d-flex button-group" role="search">
@@ -99,6 +109,20 @@
 .search{
     display: none;
 }
+.dropdown-menu{
+    width: 20rem;
+    padding: 1rem;
+    margin-left: -5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.dropdown-menu li{
+    margin-bottom: 1rem;
+}
+.dropdown-menu img{
+    width: 1.5rem;
+    margin-right: 0.5rem;
+}
 
 
 
@@ -160,6 +184,13 @@
     padding: 12px 15px;
     border: none;
     width: 50%;
+}
+.dropdown-menu{
+    width: auto;
+    padding: 1rem;
+    margin-left: 0rem;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 }
@@ -238,3 +269,20 @@
 }
 
 </style>
+
+
+
+<script>
+export default {
+    data(){
+        return{
+            dropdown:false,
+        }
+    },
+    methods:{
+        displayDropdown(){
+            this.dropdown = !this.dropdown
+        }
+    }
+}
+</script>

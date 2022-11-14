@@ -64,8 +64,8 @@
             <div class="action-great">
                 <img src="verifynow.svg" alt="">
                 <h4>Hi Investor, great to see you here!</h4>
-                <p>Once you're ready, please verify your account.</p>
-                <button>Verify now</button>
+                <p>Once you're ready, please update your details.</p>
+                <a href="update"><button style="color:white">Update your details</button></a>
             </div>
             <div class="action-eye">
                 <h6>Watchlist</h6>

@@ -38,8 +38,62 @@
                 <button class="with" v-if="about" @click="withdrawMode()">Withdraw</button>  <button class="cancel" v-else @click="cancelWithdrawal()">Cancel</button>
                 <div class="withdraw" v-if="mode">
                     <form @submit.prevent="withdrawFunds()">
-                        <input type="number" name="" required v-model="amount" placeholder="Amount" id="">
+                      <div class="withdraw-cards">
+                        <div>
+                        <label for="">Account Name</label>
+                        <input type="text" required v-model="bank.name">
+                      </div>
+                      <div>
+                        <label for="">Account Number</label>
+                        <input type="number" required name="" id="" v-model="bank.account">
+                      </div>
+                      <div>
+                        <label for="">Swift</label>
+                        <input type="text" required v-model="bank.swift">
+                      </div>
+                      <div>
+                        <label for="">Bank Name</label>
+                        <input type="text" required name="" id="" v-model="bank.bank_name">
+                      </div>
+                      <div>
+                        <label for="">Bank Address</label>
+                        <input type="text" required v-model="bank.bank_address">
+                      </div>
+                      <div>
+                        <label for="">Bank State</label>
+                        <input type="text" required v-model="bank.bank_state">
+                      </div>
+                      <div>
+                        <label for="">Bank Zipcode</label>
+                        <input type="text" required v-model="bank.bank_zip_code">
+                      </div>
+                      <div>
+                        <label for="">Bank Country</label>
+                        <input type="text" required v-model="bank.bank_country">
+                      </div>
+                      <div>
+                        <label for="">Additional Instructions</label>
+                        <input type="text" required v-model="bank.additional_instructions">
+                      </div>
+                      <div>
+                        <label for="">Amount</label>
+                        <input type="number" name="" required v-model="amount" id="">
+                      </div>
+                      <div>
                         <button type="submit">Withdraw</button>
+                      </div>
+                      </div>
+                      
+                
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                     </form>
                     
                 </div>
@@ -79,8 +133,20 @@
       return {
         portfolio:{},
         value:0,
+        banks:{},
         about:true,
         mode:false,
+        bank:{
+          name:'',
+          account:null,
+          swift:'',
+          bank_name:'',
+          bank_address:'',
+          bank_state:'',
+          bank_zip_code:'',
+          bank_country:'',
+          additional_instructions:''
+        },
         amount:null,
         baseUrl: "https://paybay-invest.herokuapp.com/api/",
       };
@@ -92,7 +158,15 @@
           this.portfolio = response.data;
         this.value = Number(this.portfolio[0].profile_value);
         } catch (error) {
-          console.error(error);
+          console.log(error);
+        }
+      },
+      async getBanks() {
+        try {
+          const response = await this.$axios.get(this.baseUrl + "withdraw/");
+          this.banks = response.data;
+        } catch (error) {
+          console.log(error);
         }
       },
       withdrawMode(){
@@ -102,7 +176,8 @@
       cancelWithdrawal(){
         this.about = true;
         this.mode = false;
-        this.amount= null
+        this.amount= null;
+        this.bank = {};
       },
       withdrawFunds(){
         console.log(this.amount)
@@ -114,10 +189,16 @@
             });
         }else{
             try {
-          const response = this.$axios.get(this.baseUrl + "withdraw/",this.amount);
+          const response = this.$axios.get(this.baseUrl + "withdraw/",this.amount,this.bank);
           console.log(response)
+          this.$message({
+            message: "Withdraw successfull!",
+            type: "success",
+            });
+          this.bank = {},
+          this.amount = ""
         } catch (error) {
-          console.error(error);
+          console.log(error);
         }
         }
         // if (this.amount > this.value ){
@@ -134,7 +215,8 @@
   
     mounted() {
     //   this.getCrypto(),
-       this.getPortfolio()
+       this.getPortfolio(),
+       this.getBanks()
     },
   };
   </script>
@@ -275,6 +357,8 @@
         background: #f5f5f5;
         padding: 5px 10px;
         border-radius: 5px;
+        display: block;
+        width: 100%;
       }
       .withdraw button{
         background: #16a858;
@@ -282,6 +366,13 @@
         border: none;
         padding: 7px 25px;
         border-radius: 5px;
+        margin-top: 1.4rem;
+        width: 100%;
+      }
+      .withdraw-cards{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 2rem;
       }
   
   
@@ -356,6 +447,20 @@
         border-radius: 5px;
         width: 100%;
       }
+      .withdraw button{
+        background: #16a858;
+        color: white;
+        border: none;
+        padding: 7px 25px;
+        border-radius: 5px;
+        margin-top: 1rem;
+        width: 100%;
+      }
+      .withdraw-cards{
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 2rem;
+      }
       }
   
   
@@ -370,7 +475,7 @@
           margin-left: 10px;
           margin-right: 10px;
          display: grid;
-         grid-template-columns: 1fr 1fr;
+         grid-template-columns: 1fr;
       }
       .movers-card{
           margin-top: 1rem;
@@ -387,7 +492,7 @@
           border-radius: 9px;
           padding: 1rem;
           display: grid;
-          grid-template-columns: 1fr  1fr;
+          grid-template-columns: 1fr ;
       }
       .action{
           margin-top: 2rem;
@@ -411,7 +516,7 @@
         padding: 7px 25px;
         border-radius: 5px;
         width: 100%;
-        margin-top: 1rem;
+        margin-top: 1.4rem;
       }
       .two-factor-text .with{
         background: #16a858;
@@ -419,7 +524,7 @@
         border: none;
         padding: 10px 25px;
         border-radius: 5px;
-        width: 100%;
+        width: 10rem;
       }
       .two-factor-text .cancel{
         background: red;
@@ -427,7 +532,7 @@
         border: none;
         padding: 10px 25px;
         border-radius: 5px;
-        width: 100%;
+        width: 10rem;
       }
       }
   </style>

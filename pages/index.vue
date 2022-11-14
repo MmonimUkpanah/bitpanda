@@ -162,7 +162,7 @@
           <a href="">Read more</a>
         </div>
         <div class="features-img">
-          <img src="cl.png" alt="">
+          <img src="paybay-preview.png" alt="">
         </div>
       </div>
       <div class="features-button">
@@ -180,24 +180,28 @@
           <!-- <span>PAY BAY INVEST BLOG</span> -->
           <h2>Promo</h2>
           <!-- <a href="">Visit Blog</a> -->
+          <p>Minimum Investment: $1,000</p>
           <img src="blog.png" alt="">
         </div>
         <div class="learn-second">
           <!-- <span>PAY BAY INVEST ACADEMY</span> -->
           <h2>Gold</h2>
           <!-- <a href="">Visit Academy</a> -->
+          <p>Minimum Investment: $5,000</p>
           <img src="academy.png" alt="">
         </div>
         <div class="learn-first">
           <!-- <span>PAY BAY INVEST BLOG</span> -->
           <h2>Silver</h2>
           <!-- <a href="">Visit Blog</a> -->
+          <p>Minimum Investment: $2,000</p>
           <img src="blog.png" alt="">
         </div>
         <div class="learn-second">
           <!-- <span>PAY BAY INVEST ACADEMY</span> -->
           <h2>Platinum</h2>
           <!-- <a href="">Visit Academy</a> -->
+          <p>Minimum Investment: $15,000</p>
           <img src="academy.png" alt="">
         </div>
       </div>
@@ -263,6 +267,14 @@
       </div>
       <hr>
     </div>
+    <a
+        href="https://wa.me/+16612383185"
+        class="whatsapp_float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
+      </a>
     <Footer/>
   </div>
   
@@ -647,11 +659,40 @@
     font-size: 45px;
     font-weight: 600;
   }
+  .whatsapp_float {
+          position: fixed;
+          width: 60px;
+          height: 60px;
+          bottom: 40px;
+          right: 40px;
+          background-color: #25d366;
+          color: #FFF;
+          border-radius: 50px;
+          text-align: center;
+          font-size: 30px;
+          box-shadow: 2px 2px 3px #999;
+          z-index: 100;
+      }
+
+      .whatsapp-icon {
+          margin-top: 16px;
+      }
   
 
 
 
   @media (max-width:576px) {
+    .whatsapp-icon {
+              margin-top: 10px;
+          }
+
+          .whatsapp_float {
+              width: 40px;
+              height: 40px;
+              bottom: 20px;
+              right: 10px;
+              font-size: 22px;
+          }
     .header{
     margin-left: 10px;
     margin-right: 10px;
@@ -780,6 +821,17 @@
 
 
   @media (min-width:577px) and (max-width:768px){
+    .whatsapp-icon {
+              margin-top: 10px;
+          }
+
+          .whatsapp_float {
+              width: 40px;
+              height: 40px;
+              bottom: 20px;
+              right: 10px;
+              font-size: 22px;
+          }
     .header{
     margin-left: 10px;
     margin-right: 10px;

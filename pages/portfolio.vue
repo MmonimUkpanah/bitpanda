@@ -41,43 +41,43 @@
                       <div class="withdraw-cards">
                         <div>
                         <label for="">Account Name</label>
-                        <input type="text" required v-model="bank.name">
+                        <input type="text" required v-model="withdrawalInfo.name">
                       </div>
                       <div>
                         <label for="">Account Number</label>
-                        <input type="number" required name="" id="" v-model="bank.account">
+                        <input type="number" max="2147483647" required name="" id="" v-model="withdrawalInfo.account">
                       </div>
                       <div>
                         <label for="">Swift</label>
-                        <input type="text" required v-model="bank.swift">
+                        <input type="text" required v-model="withdrawalInfo.swift">
                       </div>
                       <div>
                         <label for="">Bank Name</label>
-                        <input type="text" required name="" id="" v-model="bank.bank_name">
+                        <input type="text" required name="" id="" v-model="withdrawalInfo.bank_name">
                       </div>
                       <div>
                         <label for="">Bank Address</label>
-                        <input type="text" required v-model="bank.bank_address">
+                        <input type="text" required v-model="withdrawalInfo.bank_address">
                       </div>
                       <div>
                         <label for="">Bank State</label>
-                        <input type="text" required v-model="bank.bank_state">
+                        <input type="text" required v-model="withdrawalInfo.bank_state">
                       </div>
                       <div>
                         <label for="">Bank Zipcode</label>
-                        <input type="text" required v-model="bank.bank_zip_code">
+                        <input type="text" required v-model="withdrawalInfo.bank_zip_code">
                       </div>
                       <div>
                         <label for="">Bank Country</label>
-                        <input type="text" required v-model="bank.bank_country">
+                        <input type="text" required v-model="withdrawalInfo.bank_country">
                       </div>
                       <div>
                         <label for="">Additional Instructions</label>
-                        <input type="text" required v-model="bank.additional_instructions">
+                        <input type="text" required v-model="withdrawalInfo.additional_instructions">
                       </div>
                       <div>
                         <label for="">Amount</label>
-                        <input type="number" name="" required v-model="amount" id="">
+                        <input type="number" name="" required v-model="withdrawalInfo.amount" id="">
                       </div>
                       <div>
                         <button type="submit">Withdraw</button>
@@ -133,10 +133,9 @@
       return {
         portfolio:{},
         value:0,
-        banks:{},
         about:true,
         mode:false,
-        bank:{
+        withdrawalInfo:{
           name:'',
           account:null,
           swift:'',
@@ -145,9 +144,10 @@
           bank_state:'',
           bank_zip_code:'',
           bank_country:'',
-          additional_instructions:''
+          additional_instructions:'',
+          amount:null,
         },
-        amount:null,
+        
         baseUrl: "https://paybay-invest.herokuapp.com/api/",
       };
     },
@@ -161,14 +161,14 @@
           console.log(error);
         }
       },
-      async getBanks() {
-        try {
-          const response = await this.$axios.get(this.baseUrl + "withdraw/");
-          this.banks = response.data;
-        } catch (error) {
-          console.log(error);
-        }
-      },
+      // async getBanks() {
+      //   try {
+      //     const response = await this.$axios.get(this.baseUrl + "withdraw/");
+      //     this.banks = response.data;
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // },
       withdrawMode(){
         this.about = false;
         this.mode = true;
@@ -189,12 +189,12 @@
             });
         }else{
             try {
-          const response = this.$axios.get(this.baseUrl + "withdraw/",this.amount,this.bank);
-          console.log(response)
+          const response = this.$axios.post(this.baseUrl + "withdraw/",this.withdrawalInfo);
           this.$message({
             message: "Withdraw successfull!",
             type: "success",
             });
+            console.log(response)
           this.bank = {},
           this.amount = ""
         } catch (error) {
@@ -215,8 +215,8 @@
   
     mounted() {
     //   this.getCrypto(),
-       this.getPortfolio(),
-       this.getBanks()
+       this.getPortfolio()
+       
     },
   };
   </script>

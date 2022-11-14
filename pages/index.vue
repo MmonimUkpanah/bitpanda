@@ -267,22 +267,28 @@
       </div>
       <hr>
     </div>
-    <a
+    <!-- <a
         href="https://wa.me/+16612383185"
         class="whatsapp_float"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
-      </a>
+        <i class="fab fa-whatsapp whatsapp-icon"></i>
+      </a> -->
+      <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+16612383185"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
     <Footer/>
+    
   </div>
   
 </template>
 
 <script>
+
   export default {
-  auth: false
+  auth: false,
+  components: {
+      
+    },
 }
 </script>
 

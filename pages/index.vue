@@ -2,6 +2,9 @@
   <div>
     <Navbar/>
     <div class="header">
+      <div class="mgm" style="display: none;">
+        <div class="txt" style="color:black;">Someone from <b></b> just bought <a href="javascript:void(0);" onclick="javascript:void(0);"></a></div>
+      </div>
       <div class="header-left">
         <h1>Invest in what you believe in </h1>
         <nuxt-link to="login"><button>Start Investing</button></nuxt-link>

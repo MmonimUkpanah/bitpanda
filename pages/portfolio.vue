@@ -156,7 +156,8 @@
         try {
           const response = await this.$axios.get(this.baseUrl + "dashboard/");
           this.portfolio = response.data;
-        this.value = Number(this.portfolio[0].profile_value);
+       this.value = Number(this.portfolio[0].profile_value);
+        console.log(this.portfolio)
         } catch (error) {
           console.log(error);
         }
@@ -221,7 +222,6 @@
     },
   
     mounted() {
-    //   this.getCrypto(),
        this.getPortfolio()
        
     },

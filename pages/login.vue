@@ -5,17 +5,11 @@
       <h3>User Login</h3>
       <form action="" @submit.prevent="userLogin()" method="post">
         <label for="email">Email</label>
-        <input type="email" v-model="loginInfo.email">
+        <input type="email" v-model="loginInfo.email" required >
         <label for="Password" class="mt-3">Password</label>
-        <input type="password" name="" id="" v-model="loginInfo.password">
-        <label for="">Forgot your password?</label>
+        <input type="password" name="" id="" v-model="loginInfo.password" required>
         <button class="login-button" type="submit">Login</button>
-        <span class="account-button">Don't have an account yet?</span>
-        <div class="confirm">
-          <p>Did not get a confirmation email?</p>
-          <p class="resend">Resend confirmation email</p>
-        </div>
-        
+        <nuxt-link to="signup"><span class="account-button">Don't have an account yet?</span></nuxt-link>
       </form>
     </div>
   </div>

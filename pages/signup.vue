@@ -5,14 +5,26 @@
         <h3>Create your Pay Bay Invest account</h3>
         <form method="post" @submit.prevent="signUp">
             <div class="name">
-                <input type="text" required placeholder="First Name" v-model="signupinfo.first_name"> <input type="text" required placeholder="Last Name" v-model="signupinfo.surname">
+              <div>
+                <label for="">First Name</label>
+                <input type="text" required v-model="signupinfo.first_name"> 
+              </div>
+              <div>
+                <label for="">Last Name</label>
+                <input type="text" required v-model="signupinfo.surname">
+              </div>
             </div>
-          
-          <input type="email" placeholder="Email" required v-model="signupinfo.email">
+          <label for="">Email</label>
+          <input type="email"  required v-model="signupinfo.email">
+          <label for="">Date of Birth</label>
           <input type="date"  required v-model="signupinfo.dob">
-          <input type="number"  placeholder="Phone Number" required v-model="signupinfo.phone">
-          <input type="text" placeholder="address" required v-model="signupinfo.address">
-          <input type="number"  placeholder="Postal code" required v-model="signupinfo.postal_code">
+          <label for="">Phone Number</label>
+          <input type="number"   required v-model="signupinfo.phone">
+          <label for="">Address</label>
+          <input type="text" required v-model="signupinfo.address">
+          <label for="">Postal Code</label>
+          <input type="number" required v-model="signupinfo.postal_code">
+          <label for="">Stage</label>
           <select class="form-select" aria-label="Default select example" v-model="signupinfo.stage">
             <option selected >Stage</option>
             <option value="Promo">Promo</option>
@@ -20,13 +32,13 @@
             <option value="Silver">Silver</option>
             <option value="Platinum">Platinum</option>
           </select>
-          <input type="password" name="" id="" required placeholder="password"  v-model="signupinfo.password">
-          <input type="password" name="" id="" required placeholder="confirm password"  v-model="signupinfo.password2">
+          <label for="">Password</label>
+          <input type="password" name="" id="" required  v-model="signupinfo.password">
+          <label for=""> Confirm password</label>
+          <input type="password" name="" id="" required   v-model="signupinfo.password2">
           <button type="submit" class="login-button">Create Account</button>
-          <span class="account-button">Already have an account?</span>
-          <div class="confirm">
-            <p class="resend">Looking to open a business account? Sign up here</p>
-          </div>
+          <nuxt-link to="login"><span class="account-button">Already have an account?</span></nuxt-link> 
+         
           
         </form>
       </div>

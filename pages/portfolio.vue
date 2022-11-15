@@ -45,7 +45,7 @@
                       </div>
                       <div>
                         <label for="">Account Number</label>
-                        <input type="number" max="2147483647" required name="" id="" v-model="withdrawalInfo.account">
+                        <input type="number"  required name="" id="" v-model="withdrawalInfo.account">
                       </div>
                       <div>
                         <label for="">Swift</label>
@@ -195,14 +195,17 @@
             type: "success",
             });
             console.log(response)
-          this.bank = {},
-          this.amount = ""
+            this.$router.push("/dashboard")
         } catch (error) {
           this.$message({
             message: error.response.data,
             type: "warning",
             });
           console.log(error);
+        }
+        finally {
+          this.bank = {};
+          this.amount = null
         }
         }
         // if (this.amount > this.value ){

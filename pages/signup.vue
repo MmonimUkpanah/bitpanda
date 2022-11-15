@@ -10,9 +10,9 @@
           
           <input type="email" placeholder="Email" required v-model="signupinfo.email">
           <input type="date"  required v-model="signupinfo.dob">
-          <input type="number" max="2147483647" placeholder="Phone Number" required v-model="signupinfo.phone">
+          <input type="number"  placeholder="Phone Number" required v-model="signupinfo.phone">
           <input type="text" placeholder="address" required v-model="signupinfo.address">
-          <input type="number" max="2147483647" placeholder="Postal code" required v-model="signupinfo.postal_code">
+          <input type="number"  placeholder="Postal code" required v-model="signupinfo.postal_code">
           <select class="form-select" aria-label="Default select example" v-model="signupinfo.stage">
             <option selected >Stage</option>
             <option value="Promo">Promo</option>

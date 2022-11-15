@@ -34,7 +34,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link">Company</a>
+                    <a class="nav-link" href="about">Company</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link " href="#help">Help</a>

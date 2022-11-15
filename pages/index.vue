@@ -222,7 +222,7 @@
         </p>
        
 
-        <a href="">View licences</a>
+        <span>View licences</span>
         </div>
         
       </div>
@@ -234,7 +234,7 @@
           </p>
           
 
-          <a href="">Join us</a>
+          <span>Join us</span>
         </div>
         
       </div>
@@ -246,7 +246,32 @@
           </p>
           
 
-          <a href="">Contact us.</a>
+          <span data-bs-toggle="modal" data-bs-target="#exampleModal">Contact us.</span>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title fs-5" id="exampleModalLabel">Contact Us</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form method="post" @submit.prevent="contact">
+                    <label for="">Name</label>
+                    <input type="text" v-model="contactForm.name">
+                    <label for="">Email</label>
+                    <input type="text" v-model="contactForm.email">
+                    <label for="">Query</label>
+                    <textarea name="" id=""  v-model="contactForm.query"></textarea>
+                    <button type="submit">Submit</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         
       </div>
@@ -290,7 +315,7 @@
       >
         <i class="fab fa-whatsapp whatsapp-icon"></i>
       </a> -->
-      <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+16612383185"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
+      <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+18484660886"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
     <Footer/>
     
   </div>
@@ -303,6 +328,16 @@
   auth: false,
   components: {
       
+    },
+    data(){
+      return{
+        contactForm:{
+          name:'',
+          email:'',
+          query:'',
+        },
+        baseUrl: "https://paybay-invest.herokuapp.com/api/",
+      }
     },
     mounted(){
       document.addEventListener("DOMContentLoaded", function() {
@@ -360,9 +395,37 @@
   // Fire the function on scroll
   window.addEventListener("scroll", handleScroll)
 })
+
+
+
+
+
+
+
     },
   methods:{
-    
+    async contact() {
+        try {
+          const response = await this.$axios.post(
+            this.baseUrl + "contact/",
+            this.contactForm
+          )
+          this.$message({
+            message: "Your query has been sent!",
+            type: "success",
+            });
+          console.log(response);
+          this.contactForm = {}
+        } catch (error) {
+          console.log(error);
+          this.$message({
+            message: error.response.data,
+            type: "warning",
+            });
+        } finally {
+          this.contactForm = {};
+        }
+      },
   }
 }
 </script>
@@ -772,6 +835,33 @@
       .counter h3, .counter h2{
         color: white;
       }
+      .reg-text span{
+    border-bottom: 2px solid #27d17f;
+    }
+    .reg-text span:hover{
+      color: #27d17f;
+      cursor: pointer;
+    }
+    .modal-body input, .modal-body textarea{
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    .modal-body label{
+      font-weight: 600;
+    }
+    .modal-body button{
+      width: 100%;
+      background: #27d17f;
+      color: white;
+      padding: 0.5rem;
+      border: none;
+      margin-top: 1rem;
+      border-radius: 5px;
+    }
+    .modal-header header{
+      color: #27d17f;
+    }
 
   @media (max-width:576px) {
     .whatsapp-icon {
@@ -848,6 +938,7 @@
   .reg-text{
     margin-top: -1.2rem;
   }
+  
   .invest{
     margin-left: 10px;
     margin-right: 10px;

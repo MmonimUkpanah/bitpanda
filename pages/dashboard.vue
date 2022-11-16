@@ -63,15 +63,15 @@
         <div class="action">
             <div class="action-great">
                 <img src="verifynow.svg" alt="">
-                <h4>Hi Investor, great to see you here!</h4>
+                <h4>Hi {{$auth.user.first_name}}, great to see you here!</h4>
                 
             </div>
             <div class="action-eye">
                 <h6>Watchlist</h6>
                 <div class="action-eye-center">
                     <img src="list.svg" alt="">
-                    <p>Keep an eye on assets by tapping a heart icon wherever you see it or start here.</p>
-                    <button>Get Started</button>
+                    <p>Keep an eye on assets by tapping a heart icon wherever you see it.</p>
+                    <!-- <button>Get Started</button> -->
                 </div>
             </div>
         </div>

@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -44,6 +46,7 @@ export default {
     { src: '~/plugins/uikit.js', ssr: false },
     { src: '~/plugins/axios.js', ssr: false },
     {src:"~/plugins/element-ui.js",ssr: false },
+    { src: '~/plugins/jquery.min.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -124,5 +127,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+      })
+    ]
   }
 }

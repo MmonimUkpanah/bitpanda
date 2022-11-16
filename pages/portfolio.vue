@@ -33,7 +33,7 @@
           <!-- <hr class="mover-hr"> -->
           <div class="two-factor">
               <div class="two-factor-text">
-                <p>Current portfolio value</p>
+                <p>Hi {{$auth.user.first_name}} {{$auth.user.surname}}, your current portfolio value is</p>
                 <h4>${{value}}</h4>
                 <button class="with" v-if="about" @click="withdrawMode()">Withdraw</button>  <button class="cancel" v-else @click="cancelWithdrawal()">Cancel</button>
                 <div class="withdraw" v-if="mode">

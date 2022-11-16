@@ -8,6 +8,16 @@
         <div style="height:2rem">
 
         </div>
+        <div class="action">
+            <div class="action-great">
+                <h2>Hi {{$auth.user.first_name}}, great to see you here!</h2>
+                
+            </div>
+            <div class="action-eye">
+                <h2>Your balance: ${{value}}</h2>
+                
+            </div>
+        </div>
         <div class="movers">
             <div class="movers-top">
                 <h4>Top movers</h4>
@@ -60,21 +70,7 @@
                 <button>Set Up</button>
             </div>
         </div> -->
-        <div class="action">
-            <div class="action-great">
-                <img src="verifynow.svg" alt="">
-                <h4>Hi {{$auth.user.first_name}}, great to see you here!</h4>
-                
-            </div>
-            <div class="action-eye">
-                <h6>Watchlist</h6>
-                <div class="action-eye-center">
-                    <img src="list.svg" alt="">
-                    <p>Keep an eye on assets by tapping a heart icon wherever you see it.</p>
-                    <!-- <button>Get Started</button> -->
-                </div>
-            </div>
-        </div>
+        
     </div>
   </div>
 </template>
@@ -96,6 +92,8 @@ export default {
         com3:{},
         com4:{},
       baseUrl: "https://paybay-invest.herokuapp.com/api/",
+      portfolio:{},
+      value:''
     };
   },
   methods: {
@@ -111,10 +109,21 @@ export default {
         console.error(error);
       }
     },
+    async getPortfolio() {
+        try {
+          const response = await this.$axios.get(this.baseUrl + "dashboard/");
+          this.portfolio = response.data;
+       this.value = Number(this.portfolio[0].profile_value);
+        console.log(this.portfolio)
+        } catch (error) {
+          console.log(error);
+        }
+      },
   },
 
   mounted() {
-    this.getCommodities()
+    this.getCommodities(),
+    this.getPortfolio()
   },
 };
 </script>
@@ -200,12 +209,16 @@ export default {
         margin-top: 1rem;
     }
     .action{
-        margin-top: 2rem;
+        margin-bottom: 2rem;
         margin-left: 10rem;
         margin-right: 10rem;
         display: grid;
         grid-template-columns: 1.3fr 1fr;
         column-gap: 2rem;
+        
+    }
+    .action h2, .action h4{
+        color: #16a858 !important;
     }
     .action-great{
         background: white;
@@ -234,6 +247,7 @@ export default {
         background: white;
         padding: 1rem;
         border-radius: 9px;
+        text-align: center;
     }
     .action-eye-center{
         text-align: center;

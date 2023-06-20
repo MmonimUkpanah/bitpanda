@@ -344,7 +344,7 @@
         script:[{  
           src:''
         }],
-        baseUrl: "https://paybay-invest.herokuapp.com/api/",
+        baseUrl: "https://paybay-6ipm.onrender.com/api/",
       }
     },
     mounted(){

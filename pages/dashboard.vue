@@ -91,7 +91,7 @@ export default {
         com2:{},
         com3:{},
         com4:{},
-      baseUrl: "https://paybay-invest.herokuapp.com/api/",
+      baseUrl: "https://paybay-6ipm.onrender.com/api/",
       portfolio:{},
       value:''
     };

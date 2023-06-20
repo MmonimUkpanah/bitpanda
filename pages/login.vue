@@ -30,7 +30,7 @@ export default {
       },
       login:true,
       sig:false,
-      baseUrl: "https://direshop777.herokuapp.com/",
+      baseUrl: "https://paybay-6ipm.onrender.com/api/",
       
     }
   },
